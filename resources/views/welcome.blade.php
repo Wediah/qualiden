@@ -80,10 +80,76 @@
             <div class="bottom-gradient-overlay"></div>
         </div>
 
+
+
         <div class="content-section bg-black">
             <div class="py-14 md:px-96 px-4 ">
                 <h1 class="text-2xl font-bold text-white">Featured projects</h1>
                 <hr class="my-4">
+            </div>
+        </div>
+
+        <div class="content-section bg-black">
+            <div class="py-14 md:px-96 px-4 ">
+                <h1 class="text-2xl font-bold text-white">Featured Clients</h1>
+                <hr class="my-4">
+                <div class="flex flex-row gap-8 flex-wrap justify-left">
+                    <!-- HPW -->
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/HPW.svg') }}" class="w-full h-full object-contain" alt="HPW" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            HPW Limited
+        </span>
+                    </div>
+
+                    <!-- Aksa Energy -->
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/logo-aksa-energy.svg') }}" class="w-full h-full object-contain" alt="Aksa Energy" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            Aksa Energy
+        </span>
+                    </div>
+
+                    <!-- Engineers & Planners -->
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/engplan.png') }}" class="w-full h-full object-contain" alt="Engineers and Planners" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            Engineers & Planners
+        </span>
+                    </div>
+
+                    <!-- TAGG -->
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/tagg.png') }}" class="w-full h-full object-contain" alt="TAGG" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            TAGG Group
+        </span>
+                    </div>
+
+                    <!-- Twellium -->
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/twellium.png') }}" class="w-full h-full object-contain" alt="Twellium" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            Twellium Industrial Company
+        </span>
+                    </div>
+
+                    <!-- WBHO -->
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/wbho.png') }}" class="w-full h-full object-contain" alt="WBHO" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            WBHO Construction
+        </span>
+                    </div>
+
+                    <div class="group relative w-24 h-16">
+                        <h1 class="text-lg font-bold text-white pointer-none">JV DESIMONE EIFFAGE
+                        </h1>
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            JV DESIMONE EIFFAGE
+        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
