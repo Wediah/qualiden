@@ -18,6 +18,20 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/quality', function () {
+    return view('quality');
+})->name('quality');
+
+Route::get('/health', function () {
+    return view('health');
+})->name('health');
+
+
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
