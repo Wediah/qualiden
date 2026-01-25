@@ -1,0 +1,44 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }}
+            # Enable maintenance mode
+            echo "🚧 Enabling maintenance mode..."
+            php artisan down --message="Deploying new features..." --retry=60
+
+             # Configure Git with Personal Access Token
+            echo "🔑 Configuring Git authentication..."
+            git remote set-url origin https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
+
+            # Reset any local changes that conflict
+            echo "🔄 Resetting local changes..."
+            git checkout -- composer.json composer.lock
+            git clean -fd
+
+            # Pull latest changes
+            echo "📥 Pulling latest changes..."
+            git fetch origin main
+            git reset --hard origin/main
+            composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+            php artisan optimize:clear
+            php artisan migrate --force
