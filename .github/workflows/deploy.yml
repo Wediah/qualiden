@@ -9,36 +9,52 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 🛎️ Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to server
-        uses: appleboy/ssh-action@master
+      - name: 🐘 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2
+
+      - name: 📦 Install PHP dependencies
+        run: |
+          composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 🧱 Build frontend assets
+        run: |
+          npm install
+          npm run build
+
+      - name: 📤 Upload to server
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          source: "./*"
+          target: "/home/${{ secrets.SSH_USER }}/qualiden"
+          rm: true
+
+      - name: 🔄 Sync public folder & fix permissions
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ${{ secrets.DEPLOY_PATH }}
-            # Enable maintenance mode
-            echo "🚧 Enabling maintenance mode..."
-            php artisan down --message="Deploying new features..." --retry=60
+            # Copy public assets (including build/)
+            cp -r ~/qualiden/public/* ~/public_html/
 
-             # Configure Git with Personal Access Token
-            echo "🔑 Configuring Git authentication..."
-            git remote set-url origin https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
-
-            # Reset any local changes that conflict
-            echo "🔄 Resetting local changes..."
-            git checkout -- composer.json composer.lock
-            git clean -fd
-
-            # Pull latest changes
-            echo "📥 Pulling latest changes..."
-            git fetch origin main
-            git reset --hard origin/main
-            composer install --no-dev --optimize-autoloader --no-interaction --no-progress
-            php artisan optimize:clear
-            php artisan migrate --force
+            # Fix permissions
+            chmod 644 ~/public_html/index.php
+            chmod -R 755 ~/qualiden/storage
+            chmod -R 775 ~/qualiden/storage/{logs,framework,sessions}
