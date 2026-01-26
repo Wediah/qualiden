@@ -39,6 +39,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "./*"
           target: "/home/${{ secrets.SSH_USER }}/qualiden"
           rm: true
