@@ -143,10 +143,15 @@
                     </div>
 
                     <div class="group relative w-24 h-16">
-                        <h1 class="text-lg font-bold text-white pointer-none">JV DESIMONE EIFFAGE
-                        </h1>
+                        <img src="{{ asset('assets/desimone-logo.svg') }}" class="w-full h-full object-contain" alt="desimone_logo" />
                         <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            JV DESIMONE EIFFAGE
+            DESIMONE
+        </span>
+                    </div>
+                    <div class="group relative w-24 h-16">
+                        <img src="{{ asset('assets/logo-eiffage.svg') }}" class="w-full h-full object-contain" alt="eiffage_logo" />
+                        <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            Eiffage
         </span>
                     </div>
                 </div>

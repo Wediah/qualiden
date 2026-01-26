@@ -16,19 +16,67 @@
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
+
+                {{-- Projects navigation --}}
+                <flux:sidebar.group :heading="__('Projects')" class="grid">
+                    @if (Route::has('projects.index'))
+                        <flux:sidebar.item icon="folder" :href="route('projects.index')" :current="request()->routeIs('projects.index')" wire:navigate>
+                            {{ __('All Projects') }}
+                        </flux:sidebar.item>
+                    @else
+                        <flux:sidebar.item icon="folder" href="{{ url('/projects') }}">
+                            {{ __('All Projects') }}
+                        </flux:sidebar.item>
+                    @endif
+
+                    @if (Route::has('projects.create'))
+                        <flux:sidebar.item icon="plus" :href="route('projects.create')" wire:navigate>
+                            {{ __('Create Project') }}
+                        </flux:sidebar.item>
+                    @else
+                        <flux:sidebar.item icon="plus" href="{{ url('/projects/create') }}">
+                            {{ __('Create Project') }}
+                        </flux:sidebar.item>
+                    @endif
+                </flux:sidebar.group>
+
+                {{-- Admin quick list with edit/delete actions --}}
+                @if (auth()->check() && (isset(auth()->user()->is_admin) ? auth()->user()->is_admin : false))
+                    @php
+                        // Load latest projects to show quick actions. Limit to 10.
+                        $__sidebarProjects = \App\Models\Project::orderBy('created_at', 'desc')->limit(10)->get();
+                    @endphp
+
+                    <flux:sidebar.group :heading="__('Manage Projects')" class="grid">
+                        @forelse ($__sidebarProjects as $__proj)
+                            <flux:sidebar.item icon="folder" href="{{ Route::has('projects.show') ? route('projects.show', $__proj) : url('/projects/'.$__proj->id) }}">
+                                <div class="flex items-center justify-between gap-2 w-full">
+                                    <span class="truncate">{{ $__proj->name }}</span>
+                                    <span class="flex items-center gap-2">
+                                        @if (Route::has('projects.edit'))
+                                            <a href="{{ route('projects.edit', $__proj) }}" class="text-xs text-zinc-500 hover:text-zinc-700">{{ __('Edit') }}</a>
+                                        @else
+                                            <a href="{{ url('/projects/'.$__proj->id.'/edit') }}" class="text-xs text-zinc-500 hover:text-zinc-700">{{ __('Edit') }}</a>
+                                        @endif
+
+                                        <form method="POST" action="{{ Route::has('projects.destroy') ? route('projects.destroy', $__proj) : url('/projects/'.$__proj->id) }}" onsubmit="return confirm('{{ __('Delete this project?') }}');" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-xs text-red-500 hover:text-red-700">{{ __('Delete') }}</button>
+                                        </form>
+                                    </span>
+                                </div>
+                            </flux:sidebar.item>
+                        @empty
+                            <flux:sidebar.item icon="folder-open" href="#">{{ __('No projects') }}</flux:sidebar.item>
+                        @endforelse
+                    </flux:sidebar.group>
+                @endif
+
             </flux:sidebar.nav>
 
             <flux:spacer />
 
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
-
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
-            </flux:sidebar.nav>
 
             <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
         </flux:sidebar>

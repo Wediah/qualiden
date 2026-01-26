@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('status')->default('pending');
+            $table->string('client')->nullable();
+            $table->text('bio')->nullable();
             $table->timestamps();
         });
     }
