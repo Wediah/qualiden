@@ -53,10 +53,13 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
-            # Copy public assets (including build/)
+            # Copy public assets
             cp -r ~/qualiden/public/* ~/public_html/
+
+            # Ensure storage directories exist
+            mkdir -p ~/qualiden/storage/{logs,framework/{cache,sessions,views},app}
 
             # Fix permissions
             chmod 644 ~/public_html/index.php
             chmod -R 755 ~/qualiden/storage
-            chmod -R 775 ~/qualiden/storage/{logs,framework,sessions}
+            chmod -R 775 ~/qualiden/storage/{logs,framework}
