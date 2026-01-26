@@ -54,7 +54,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             # Copy public assets
-            cp -r ~/qualiden/public/* ~/public_html/
+            cp -r ~/qualiden/public/* ~/public_html/ 2>/dev/null || true
 
             # Ensure storage directories exist
             mkdir -p ~/qualiden/storage/{logs,framework/{cache,sessions,views},app}
