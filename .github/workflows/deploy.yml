@@ -20,7 +20,7 @@ jobs:
 
       - name: 📦 Install PHP dependencies
         run: |
-          composer install --no-dev --optimize-autoloader --no-interaction
+          composer install --no-dev --ignore-platform-req=php
 
       - name: 🏗️ Setup Node.js
         uses: actions/setup-node@v4
