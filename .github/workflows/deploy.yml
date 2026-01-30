@@ -27,11 +27,9 @@ jobs:
             echo "🚧 Enabling maintenance mode..."
             php artisan down || true
 
-            # Configure Git authentication
+            # Configure Git to use token directly in URL
             echo "🔑 Configuring Git authentication..."
-            git config credential.helper store
-            echo "https://${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
-            git remote set-url origin https://github.com/Wediah/qualiden.git
+            git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
 
             # Reset any local changes
             echo "🔄 Resetting local changes..."
@@ -40,8 +38,10 @@ jobs:
 
             # Pull latest changes
             echo "📥 Pulling latest changes..."
-            git fetch origin main
-            git reset --hard origin/main
+            git pull origin main --force
+
+            # Remove token from remote URL for security
+            git remote set-url origin https://github.com/Wediah/qualiden.git
 
             # Install dependencies
             echo "📚 Installing dependencies..."
