@@ -12,11 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create the single admin user
-        User::factory()->create([
-            'name' => 'Dennis Nsoh',
-            'email' => 'dennisnsoh@qualidengroup.com',
-            'password' => bcrypt('password'),
+        $this->call([
+            AdminSeeder::class,
         ]);
     }
 }
