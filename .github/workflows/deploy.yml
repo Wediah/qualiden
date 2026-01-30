@@ -22,47 +22,23 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.DEPLOY_PATH }}
-
             # Enable maintenance mode
             echo "🚧 Enabling maintenance mode..."
-            php artisan down || true
+            php artisan down --message="Deploying new features..." --retry=60
 
-            # Configure Git to use token directly in URL
+             # Configure Git with Personal Access Token
             echo "🔑 Configuring Git authentication..."
-            git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
+            git remote set-url origin https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
 
-            # Reset any local changes
+            # Reset any local changes that conflict
             echo "🔄 Resetting local changes..."
-            git reset --hard HEAD
+            git checkout -- composer.json composer.lock
             git clean -fd
 
             # Pull latest changes
             echo "📥 Pulling latest changes..."
-            git pull origin main --force
-
-            # Remove token from remote URL for security
-            git remote set-url origin https://github.com/Wediah/qualiden.git
-
-            # Install dependencies
-            echo "📚 Installing dependencies..."
-            composer install --no-dev --optimize-autoloader --no-interaction
-
-            # Clear cache
-            echo "🧹 Clearing cache..."
+            git fetch origin main
+            git reset --hard origin/main
+            composer install --no-dev --optimize-autoloader --no-interaction --no-progress
             php artisan optimize:clear
-
-            # Run migrations
-            echo "🗄️  Running migrations..."
             php artisan migrate --force
-
-            # Optimize for production
-            echo "⚡ Optimizing..."
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-
-            # Disable maintenance mode
-            echo "✅ Disabling maintenance mode..."
-            php artisan up
-
-            echo "🎉 Deployment completed successfully!"
