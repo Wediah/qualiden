@@ -28,7 +28,7 @@ jobs:
 
              # Configure Git with Personal Access Token
             echo "🔑 Configuring Git authentication..."
-            git remote set-url origin https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
+            git remote set-url origin git@github.com:Wediah/qualiden.git
 
             # Reset any local changes that conflict
             echo "🔄 Resetting local changes..."
