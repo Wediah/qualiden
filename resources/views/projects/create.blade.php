@@ -71,7 +71,7 @@ mx-auto text-gray-900 dark:text-gray-100">
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="space-y-3">
-                            <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Client</label>
+                            <label for="client" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Client</label>
 
                             <input type="text" id="client" wire:model="client" placeholder="0.00"
                                    class="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 pl-7 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
