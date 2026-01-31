@@ -31,12 +31,12 @@
                         </flux:sidebar.item>
                     @endif
 
-                    @if (Route::has('projects.store'))
-                        <flux:sidebar.item icon="plus" :href="route('projects.store')" wire:navigate>
+                    @if (Route::has('projects.create'))
+                        <flux:sidebar.item icon="plus" :href="route('projects.create')" wire:navigate>
                             {{ __('Create Project') }}
                         </flux:sidebar.item>
                     @else
-                        <flux:sidebar.item icon="plus" href="{{ url('/store_projects') }}">
+                        <flux:sidebar.item icon="plus" href="{{ url('/projects/create') }}">
                             {{ __('Create Project') }}
                         </flux:sidebar.item>
                     @endif

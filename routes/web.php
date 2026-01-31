@@ -20,6 +20,7 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects.ind
 // Apply admin middleware to project management and dashboard
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/store_projects', [ProjectController::class, 'store'])->name('projects.store');
+    Route::view('/projects/create', 'projects.create')->name('projects.create');
 
     // Dashboard
     Route::view('dashboard', 'dashboard')
