@@ -8,8 +8,9 @@
     <div class="grid md:grid-cols-2 grid-cols-1 items-center pt-28 px-14 gap-28">
         <div>
             @if($project->images->isNotEmpty())
+                {{-- FIX: Use Storage facade or direct path --}}
                 <img
-                    src="{{ asset('storage/projects/' . $project->id . '/' . $project->images->first()->path) }}"
+                    src="{{ Storage::url($project->images->first()->path) }}"
                     alt="{{ $project->name }}"
                     class="w-full h-full object-cover"
                 >
@@ -52,7 +53,7 @@
                 @if($image->path)
                     <div class="shrink-0">
                         <img
-                            src="{{ asset('storage/projects/' . $image->path) }}"
+                            src="{{ Storage::url($image->path) }}"
                             class="w-64 h-64 object-cover rounded"
                             alt="{{ $project->name }} ({{ $loop->iteration }})"
                         >
