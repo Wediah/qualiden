@@ -9,7 +9,7 @@
         <div>
             @if($project->images->isNotEmpty())
                 <img
-                    src="{{ asset('storage/projects/' . $project->images->first()->path) }}"
+                    src="{{ asset('storage/projects/' . $project->id . '/' . $project->images->first()->path) }}"
                     alt="{{ $project->name }}"
                     class="w-full h-full object-cover"
                 >
