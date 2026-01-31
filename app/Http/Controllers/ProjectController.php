@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class ProjectController extends Controller
 {
@@ -21,6 +22,7 @@ class ProjectController extends Controller
 
     /**
      * Create a new project and optionally store uploaded images.
+     * @throws Throwable
      */
     public function store(Request $request)
     {
@@ -43,28 +45,24 @@ class ProjectController extends Controller
             ]);
 
             if ($request->hasFile('images')) {
-                foreach ($request->file('images') as $index => $file) {
+                foreach ($request->file('images') as $file) {
                     $path = $file->store("projects/{$project->id}", 'public');
 
                     $project->images()->create([
-                        'filename' => $file->getClientOriginalName(),
                         'path' => $path,
-                        'disk' => 'public',
-                        'mime_type' => $file->getClientMimeType(),
-                        'size' => $file->getSize(),
-                        'order' => $index,
                     ]);
                 }
             }
 
+
             DB::commit();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             DB::rollBack();
 
             // Attempt to clean up any files that may have been stored
             if (isset($project) && $project->images()->exists()) {
                 foreach ($project->images as $img) {
-                    try { Storage::disk($img->disk)->delete($img->path); } catch (\Throwable $ex) { /* ignore */ }
+                    try { Storage::disk($img->disk)->delete($img->path); } catch (Throwable $ex) { /* ignore */ }
                 }
             }
 
@@ -124,13 +122,13 @@ class ProjectController extends Controller
             }
 
             DB::commit();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             DB::rollBack();
 
             // cleanup newly stored files if any
             if (isset($project) && $project->images()->exists()) {
                 foreach ($project->images as $img) {
-                    try { Storage::disk($img->disk)->delete($img->path); } catch (\Throwable $ex) { /* ignore */ }
+                    try { Storage::disk($img->disk)->delete($img->path); } catch (Throwable $ex) { /* ignore */ }
                 }
             }
 

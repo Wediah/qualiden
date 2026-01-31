@@ -15,10 +15,11 @@ Route::view('/contact', 'contact')->name('contact');
 Route::view('/quality', 'quality')->name('quality');
 Route::view('/health', 'health')->name('health');
 
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+
 // Apply admin middleware to project management and dashboard
 Route::middleware(['auth', 'admin'])->group(function () {
-    // Projects resource (index, create, store, show, edit, update, destroy)
-    Route::resource('projects', ProjectController::class);
+    Route::post('/store_projects', [ProjectController::class, 'store'])->name('projects.store');
 
     // Dashboard
     Route::view('dashboard', 'dashboard')

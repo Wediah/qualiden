@@ -8,7 +8,8 @@ mx-auto text-gray-900 dark:text-gray-100">
         </h3>
     </div>
 
-    <form wire:submit.prevent="save" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('projects.store') }}" enctype="multipart/form-data">
+        @csrf
         {{-- CardContent --}}
         <div class="p-6 space-y-8">
             {{-- Success Message --}}
@@ -67,77 +68,33 @@ mx-auto text-gray-900 dark:text-gray-100">
                         @error('name') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                     </div>
 
-                    <div class="space-y-3">
-                        <label for="project_type" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Project Type <span class="text-red-500">*</span></label>
-                        <select id="project_type" wire:model="project_type"
-                                class="flex h-10 w-full appearance-none items-center justify-between rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
-                            <option value="">Select Project Type</option>
-                            <option value="realEstate">Real Estate</option>
-                            <option value="construction">Construction</option>
-                            <option value="architecture">Architecture</option>
-                        </select>
-                        @error('project_type') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                    </div>
-
-                    <div class="space-y-3">
-                        <label for="location" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Location</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <input type="text" id="location" wire:model="location" placeholder="Project location"
-                                   class="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 pl-10 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
-                        </div>
-                        @error('location') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                    </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="space-y-3">
-                            <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Price</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span class="text-gray-500 dark:text-gray-400 text-sm">$</span>
-                                </div>
-                                <input type="text" id="price" wire:model="price" placeholder="0.00"
-                                       class="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 pl-7 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
-                            </div>
-                            @error('price') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                            <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Client</label>
+
+                            <input type="text" id="client" wire:model="client" placeholder="0.00"
+                                   class="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 pl-7 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
+
+                            @error('client') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="space-y-3">
-                            <label for="size" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Size</label>
-                            <div class="relative">
-                                <input type="text" id="size" wire:model="size" placeholder="Size"
+                            <label for="size" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
+                                <input type="text" id="status" wire:model="status" placeholder="Size"
                                        class="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 pr-12 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
-                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                                    <span class="text-gray-500 dark:text-gray-400 text-sm">sq ft</span>
-                                </div>
-                            </div>
+
                             @error('size') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                         </div>
                     </div>
-
-                    <div class="space-y-3">
-                        <label for="partners" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Partners</label>
-                        <input type="text" id="partners" wire:model="partners" placeholder="Project partners (comma separated)"
-                               class="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50">
-                        @error('partners') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                    </div>
                 </div>
-
-                <input id="imagesText" class="sr-only" wire:model="images" />
-
 
                 {{-- Right Column --}}
                 <div class="space-y-6">
                     <div class="space-y-3">
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description <span class="text-red-500">*</span></label>
-                        <textarea id="description" wire:model="description" rows="6" placeholder="Enter project description"
+                        <textarea id="bio" wire:model="bio" rows="6" placeholder="Enter project description"
                                   class="flex min-h-[80px] w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-3 py-2 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition disabled:cursor-not-allowed disabled:opacity-50 text-gray-900 dark:text-gray-100"></textarea>
-                        @error('description') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                        @error('bio') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                     </div>
 
                     <div class="space-y-3">
@@ -157,39 +114,7 @@ mx-auto text-gray-900 dark:text-gray-100">
                                 <div class="flex text-sm justify-center text-gray-600 dark:text-gray-400">
                                     <label for="images" class="relative cursor-pointer rounded-md font-medium text-indigo-600 dark:text-indigo-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 dark:focus-within:ring-indigo-500 focus-within:ring-offset-2 dark:focus-within:ring-offset-gray-900 hover:text-indigo-500 dark:hover:text-indigo-300">
                                         <span>Click to select images</span>
-                                        <input id="images" name="images" type="file"  onchange="(function onChange(e){
-                                            const files = e.target.files;
-
-                                            Object.keys(files).forEach(function(i){
-
-                                                const reader = new FileReader();
-
-                                                reader.onload = function (ev){
-                                                    const result = ev.target.result;
-                                                    const el = document.getElementById('imagesText');
-                                                    const vals = el.value || '';
-                                                    const arr = vals.split('#').filter(function(item){ return item });
-                                                    arr.push(result);
-                                                    const val = arr.join('#');
-                                                    el.value = val;
-
-                                                    try {
-                                                        if (window.Livewire && typeof Livewire.emit === 'function') {
-                                                            Livewire.emit('setImages', val);
-                                                        } else if (window.livewire && typeof window.livewire.emit === 'function') {
-                                                            window.livewire.emit('setImages', val);
-                                                        }
-                                                    } catch (err) {
-                                                        // ignore if Livewire isn't available
-                                                    }
-                                                    el.dispatchEvent(new Event('input'));
-                                                }
-
-                                                const file = files[i];
-                                                reader.readAsDataURL(file);
-                                            })
-
-                                        })(event);" multiple class="sr-only">
+                                        <input id="images" name="images[]" type="file" multiple accept="image/*" class="sr-only">
                                     </label>
                                 </div>
                                 <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF, SVG, WEBP up to 10MB</p>
@@ -211,56 +136,12 @@ mx-auto text-gray-900 dark:text-gray-100">
                         @error('images.*') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                         @error('images') <p class="mt-1 text-sm font-medium text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
 
-                        {{-- Selected New Images Preview --}}
-                        @if ($images)
-                            <div class="mt-4">
-                                <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Selected New Images (Preview):</h4>
-                                <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
-                                    @foreach (explode("#", $images) as $index => $image)
-                                        <div class="relative group aspect-square">
-                                            <img src="{{ $image }}" alt="Preview {{ $index + 1 }}" class="h-full w-full object-cover rounded-md border border-gray-200 dark:border-gray-600">
-                                            <button type="button" wire:click="removeSelectedImage({{ $index }})" title="Remove this image before upload" class="absolute top-1 right-1 bg-red-600 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-red-500">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-
-                    {{-- Current Images (for edit mode) --}}
-                    @if ($project_id && !empty($current_images))
-                        <div class="space-y-3 rounded-md border border-gray-200 dark:border-gray-600 p-4 bg-gray-50 dark:bg-gray-800">
-                            <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">Current Saved Images:</h3>
-                            <div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
-                                @foreach ($current_images as $index => $image)
-                                    <div class="relative group aspect-square">
-                                        <img src="{{ $image['image_path'] }}" alt="Project image {{ $index + 1 }}" class="h-full w-full object-cover rounded-md border border-gray-200 dark:border-gray-600">
-                                        <div class="absolute inset-0 bg-black/70 rounded-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                            <button
-                                                type="button"
-                                                wire:click="markImageForDeletion({{ $image['id'] }})"
-                                                title="Mark for deletion"
-                                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 disabled:pointer-events-none disabled:opacity-50 hover:bg-red-100 dark:hover:bg-red-900/50 hover:text-red-600 dark:hover:text-red-400 text-red-500 dark:text-red-400 h-8 w-8 p-0">
-                                                <span class="sr-only">Mark image {{ $image['id'] }} for deletion</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            @if (!empty($deleteImages))
-                                <p class="mt-2 text-xs text-yellow-600 dark:text-yellow-400">
-                                    {{ count($deleteImages) }} image(s) marked for deletion. Changes will apply upon saving the project.
-                                </p>
-                            @endif
+                        {{-- Selected New Images Preview (client-side) --}}
+                        <div id="selectedNewImages" class="mt-4">
+                            <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Selected New Images (Preview):</h4>
+                            <div id="selectedGrid" class="grid grid-cols-3 sm:grid-cols-4 gap-2"></div>
                         </div>
-                    @endif
+                    </div>
                 </div>
             </div>
         </div>
@@ -300,4 +181,52 @@ mx-auto text-gray-900 dark:text-gray-100">
             </button>
         </div>
     </form>
+
+    {{-- Inline script to handle previews for the standard file input --}}
+    <script>
+        (function () {
+            const input = document.getElementById('images');
+            const grid = document.getElementById('selectedGrid');
+            if (!input || !grid) return;
+
+            input.addEventListener('change', function (e) {
+                grid.innerHTML = '';
+                const files = Array.from(e.target.files || []);
+                files.forEach((file, idx) => {
+                    if (!file.type.startsWith('image/')) return;
+                    const reader = new FileReader();
+                    reader.onload = function (ev) {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'relative group aspect-square';
+
+                        const img = document.createElement('img');
+                        img.src = ev.target.result;
+                        img.alt = 'Preview ' + (idx + 1);
+                        img.className = 'h-full w-full object-cover rounded-md border border-gray-200 dark:border-gray-600';
+
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'absolute top-1 right-1 bg-red-600 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-red-500';
+                        btn.title = 'Remove this image before upload';
+                        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                        btn.addEventListener('click', function () {
+                            // remove file from FileList is hard; instead, clear input and rebuild excluding this index
+                            const remaining = files.filter((f, i) => i !== idx);
+                            const dataTransfer = new DataTransfer();
+                            remaining.forEach(f => dataTransfer.items.add(f));
+                            input.files = dataTransfer.files;
+                            // re-trigger change to rebuild previews
+                            const ev = new Event('change');
+                            input.dispatchEvent(ev);
+                        });
+
+                        wrapper.appendChild(img);
+                        wrapper.appendChild(btn);
+                        grid.appendChild(wrapper);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+        })();
+    </script>
 </div>
