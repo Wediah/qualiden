@@ -6,7 +6,7 @@
     <h1 class="text-2xl text-gray-400 font-medium pt-28 px-14">Portfolio</h1>
     <div class="grid md:grid-cols-2 grid-cols-1 items-center pt-28 px-14 gap-28">
         <div>
-            <img src="{{ $project->images->first()->image_path }}"
+            <img src="{{ $project->images->first()->path }}"
                  alt="{{ $project->name }}"
                  class="w-full h-full object-cover"
             >
