@@ -8,15 +8,13 @@
     <div class="grid md:grid-cols-2 grid-cols-1 items-center pt-28 px-14 gap-28">
         <div>
             @if($project->images->isNotEmpty())
-                <img
-                    src="{{ asset('storage/' . $project->images->first()->path) }}"
-                    alt="{{ $project->name }}"
-                    class="w-full h-full object-cover"
-                >
-            @else
-                <div class="w-full h-96 bg-gray-200 flex items-center justify-center text-gray-500">
-                    No image
-                </div>
+                @php
+                    $imagePath = 'storage/' . $project->images->first()->path;
+                    $fullUrl = asset($imagePath);
+                @endphp
+                <p>Path: {{ $imagePath }}</p>
+                <p>URL: {{ $fullUrl }}</p>
+                <img src="{{ $fullUrl }}" alt="{{ $project->name }}">
             @endif
         </div>
 
