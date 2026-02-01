@@ -176,13 +176,6 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('success', 'Project deleted.');
     }
 
-    /**
-     * Show the form for creating a new project.
-     */
-    public function create()
-    {
-        return view('projects.create');
-    }
 
     /**
      * Display the specified project.
