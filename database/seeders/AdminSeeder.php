@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
         ]);
 
         $this->command->info('Admin user created successfully!');
-        $this->command->warn('Default credentials: admin@example.com / password');
+        $this->command->warn('Default credentials: dennisnsoh@qualidengroup.com / password');
         $this->command->warn('Please change the password after first login!');
     }
 }
