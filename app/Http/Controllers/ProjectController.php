@@ -20,6 +20,11 @@ class ProjectController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    public function create()
+    {
+        return view('projects.create');
+    }
+
     /**
      * Create a new project and optionally store uploaded images.
      * @throws Throwable
