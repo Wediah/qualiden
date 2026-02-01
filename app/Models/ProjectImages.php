@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProjectImages extends Model
 {
+    protected $table = 'project_images';
+
     protected $fillable = [
         'project_id',
         'path'
@@ -14,6 +16,6 @@ class ProjectImages extends Model
 
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class)->withDefault();
+        return $this->belongsTo(Project::class);
     }
 }
