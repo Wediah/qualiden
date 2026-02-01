@@ -17,11 +17,12 @@ Route::view('/health', 'health')->name('health');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
 
 // Apply admin middleware to project management and dashboard
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/store_projects', [ProjectController::class, 'store'])->name('projects.store');
-    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+
 
     Route::get('/projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
     Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
