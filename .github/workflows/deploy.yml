@@ -24,7 +24,7 @@ jobs:
             cd ${{ secrets.DEPLOY_PATH }}
             # Enable maintenance mode
             echo "🚧 Enabling maintenance mode..."
-            php artisan down --message="Deploying new features..." --retry=60
+
 
              # Configure Git with Personal Access Token
             echo "🔑 Configuring Git authentication..."
