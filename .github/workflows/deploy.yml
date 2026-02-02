@@ -40,5 +40,13 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             composer install --no-dev --ignore-platform-req=php
+
+            # ⚡ AUTO-SYNC ASSETS TO public_html ⚡
+            echo "🔄 Syncing assets to public_html..."
+            mkdir -p ~/public_html/assets
+            cp -r assets/* ~/public_html/assets/ 2>/dev/null || true
+            chmod -R 644 ~/public_html/assets/*
+
+
             php artisan optimize:clear
             php artisan migrate --force
