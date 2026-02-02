@@ -128,7 +128,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Project 1 - Tema Port Expansion -->
                 <a href="#" class="block group relative overflow-hidden rounded-xl bg-white border border-gray-200">
-                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/tema-port.jpg') }}');"></div>
+                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/tema.jpeg') }}');"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
                         <div class="flex justify-between items-start">
@@ -146,13 +146,13 @@
 
                 <!-- Project 2 - GWCL Pipeline -->
                 <a href="#" class="block group relative overflow-hidden rounded-xl bg-white border border-gray-200">
-                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/gwcl-pipeline.jpg') }}');"></div>
+                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/aska.jpeg') }}');"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-xl font-bold">GWCL Pipeline Relocation</h3>
-                                <p class="text-gray-300 text-sm mt-1">OD 400mm HDPE Pipe Installation</p>
+                                <h3 class="text-xl font-bold">Aska Energy Water Treatment Plant</h3>
+                                <p class="text-gray-300 text-sm mt-1">Water treatment</p>
                             </div>
                             <span class="text-gray-300 text-sm">Accra, Ghana</span>
                         </div>
@@ -164,6 +164,166 @@
             </div>
         </div>
     </div>
+
+    <div class="py-16 px-4 md:px-14 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Menu -->
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-black">Get to know us</h2>
+                    <h3 class="text-xl font-bold text-gray-900">Our work culture</h3>
+
+                    <div class="space-y-4">
+                        @php
+                            $sections = [
+                                [
+                                    'id' => 'why-us',
+                                    'title' => 'Why Us',
+                                    'image' => 'assets/why-us.jpg',
+                                    'heading' => 'Work culture',
+                                    'content' => 'We are building a long-term sustainable business that creates more economic, environmental and social value through greater corporate responsibility. Wiyasa cares about all stakeholders and responsibility is at the core of our business.'
+                                ],
+                                [
+                                    'id' => 'investors',
+                                    'title' => 'Be Our Investors',
+                                    'image' => 'assets/investors.jpg',
+                                    'heading' => 'Investment opportunity',
+                                    'content' => 'Qualiden Engineering Limited offers a unique opportunity for investors seeking exposure to Ghana’s growing infrastructure sector. With a proven track record and strong management team, we deliver consistent returns through strategic project execution.'
+                                ],
+                                [
+                                    'id' => 'webcast',
+                                    'title' => 'Our results webcast',
+                                    'image' => 'assets/webcast.jpg',
+                                    'heading' => 'Transparency & reporting',
+                                    'content' => 'We believe in open communication. Our quarterly webcasts provide detailed insights into project progress, financial performance, and strategic direction — ensuring stakeholders are always informed.'
+                                ],
+                                [
+                                    'id' => 'join-us',
+                                    'title' => 'Join with Us',
+                                    'image' => 'assets/join-us.jpg',
+                                    'heading' => 'Career growth',
+                                    'content' => 'We invest in our people. Join a team where expertise is valued, innovation is encouraged, and professional development is prioritized. Grow with us as we expand across West Africa.'
+                                ]
+                            ];
+                        @endphp
+
+                        @foreach($sections as $index => $section)
+                            <button
+                                data-index="{{ $index }}"
+                                class="w-full text-left p-4 rounded-lg transition-colors {{ $loop->first ? 'bg-gray-100 text-black font-medium' : 'text-gray-600 hover:bg-gray-50' }}"
+                            >
+                                {{ $section['title'] }}
+                            </button>
+                        @endforeach
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex gap-3 pt-4">
+                        <button
+                            id="prevBtn"
+                            class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors"
+                            aria-label="Previous section"
+                        >
+                            <flux:icon.arrow-left class="w-5 h-5" />
+                        </button>
+                        <button
+                            id="nextBtn"
+                            class="px-6 py-2 bg-black text-white rounded-full flex items-center gap-2 font-medium hover:bg-gray-800 transition-colors"
+                        >
+                            Next
+                            <flux:icon.arrow-right class="w-4 h-4" />
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Content Area -->
+                <div class="space-y-6">
+                    <div class="relative h-[500px] md:h-[600px] rounded-xl overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center" id="heroImage"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-3" id="sectionHeading">Work culture</h2>
+                            <p class="text-gray-200 leading-relaxed mb-6" id="sectionContent">
+                                We are building a long-term sustainable business that creates more economic, environmental and social value through greater corporate responsibility. Wiyasa cares about all stakeholders and responsibility is at the core of our business.
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <a href="#" class="text-white font-medium flex items-center gap-2">
+                                    Read more
+                                    <flux:icon.arrow-top-right-on-square class="w-5 h-5" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = @json($sections);
+            let currentIndex = 0;
+
+            const heroImage = document.getElementById('heroImage');
+            const sectionHeading = document.getElementById('sectionHeading');
+            const sectionContent = document.getElementById('sectionContent');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const menuButtons = document.querySelectorAll('[data-index]');
+
+            // Initialize first section
+            function showSection(index) {
+                if (index < 0) index = sections.length - 1;
+                if (index >= sections.length) index = 0;
+                currentIndex = index;
+
+                const section = sections[index];
+
+                // Update image
+                heroImage.style.backgroundImage = `url('${section.image}')`;
+
+                // Update text
+                sectionHeading.textContent = section.heading;
+                sectionContent.innerHTML = section.content;
+
+                // Update active menu button
+                menuButtons.forEach(btn => {
+                    const btnIndex = parseInt(btn.dataset.index);
+                    if (btnIndex === currentIndex) {
+                        btn.classList.remove('text-gray-600', 'hover:bg-gray-50');
+                        btn.classList.add('bg-gray-100', 'text-black', 'font-medium');
+                    } else {
+                        btn.classList.remove('bg-gray-100', 'text-black', 'font-medium');
+                        btn.classList.add('text-gray-600', 'hover:bg-gray-50');
+                    }
+                });
+
+                // Update buttons
+                prevBtn.disabled = (currentIndex === 0);
+                nextBtn.textContent = (currentIndex === sections.length - 1) ? 'Finish' : 'Next';
+            }
+
+            // Click handlers for menu
+            menuButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const index = parseInt(btn.dataset.index);
+                    showSection(index);
+                });
+            });
+
+            // Navigation buttons
+            nextBtn.addEventListener('click', () => {
+                showSection(currentIndex + 1);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                showSection(currentIndex - 1);
+            });
+
+            // Initialize
+            showSection(0);
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
