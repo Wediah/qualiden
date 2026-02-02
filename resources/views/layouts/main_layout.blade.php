@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Qualiden Group Limited | @yield('title')</title>
-    {{-- <link rel="icon" href="{{ asset('assets/logo.jpg') }}" type="image/x-icon"> --}}
+    <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/x-icon" sizes="62x62">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
@@ -127,22 +127,6 @@
             transform: rotate(180deg);
         }
 
-        #desktop-menu ul {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-        #desktop-menu a, .dropdown-trigger {
-            color: white;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-        #desktop-menu a:hover,
-        .dropdown-trigger:hover {
-            color: #fbbf24;
-        }
-
         /* Mobile dropdown */
         .mobile-dropdown-content {
             display: none;
@@ -181,10 +165,11 @@
 <body class="font-sans">
 
 <!-- ✅ FIXED TRANSPARENT NAVBAR -->
-<nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent text-white py-4 px-4 md:px-14">
+<nav id="navbar" class="absolute top-0 w-full z-50 bg-transparent text-black py-4 px-4 md:px-14">
     <div class="flex flex-wrap items-center justify-between mx-auto">
         <a href="/" class="flex items-center space-x-1 rtl:space-x-reverse">
-            <span id="big1" class="self-center text-xl font-semibold whitespace-nowrap">Qualiden Group Limited</span>
+            <img id="white-logo" src="{{ asset('assets/logo.png') }}" class="h-12" alt="Qualiden Group Limited Logo" />
+            <span id="big1" class="self-center text-md font-semibold whitespace-nowrap">Qualiden Group</span>
         </a>
 
         <!-- Mobile menu button -->
@@ -197,31 +182,31 @@
 
         <!-- Desktop Menu -->
         <div class="hidden w-full md:block md:w-auto" id="desktop-menu">
-            <ul class="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 font-medium">
-                <li><a href="/" class="block py-2 px-3 md:p-0">Home</a></li>
-                <li class="dropdown-lg">
-                    <span class="dropdown-trigger cursor-pointer">About</span>
-                    <div class="dropdown-content-lg">
-                        <a href="/firm">Our Company</a>
-                        <a href="/team">Our Team</a>
-                        <a href="/mission">Mission & Vision</a>
-                        <a href="/quality">Quality Management</a>
-                        <a href="/health">Health & Safety</a>
-                    </div>
+            <ul class="flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  ">
+                <li>
+                    <a href="/services" class="block py-2 px-3 md:p-0 font-light text-sm relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-current after:transition-all after:duration-300 hover:after:bg-[#fbbf24]">
+                        WHAT WE DO
+                    </a>
                 </li>
-                <li><a href="/services" class="block py-2 px-3 md:p-0">Services</a></li>
-                <li class="dropdown-lg">
-                    <span class="dropdown-trigger cursor-pointer">Projects</span>
-                    <div class="dropdown-content-lg">
-                        <a href="/projects/completed">Completed Projects</a>
-                        <a href="/projects/ongoing">Ongoing Projects</a>
-                        <a href="/projects/upcoming">Upcoming Projects</a>
-                        <a href="/projects/portfolio">Project Portfolio</a>
-                        <a href="/projects/case-studies">Case Studies</a>
-                    </div>
+                <li>
+                    <a href="projects" class="block py-2 px-3 md:p-0 font-light text-sm relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-current after:transition-all after:duration-300 hover:after:bg-[#fbbf24]">OUR PROJECTS
+                    </a>
                 </li>
-                <li><a href="/contact" class="block py-2 px-3 md:p-0">Contact</a></li>
+                <li>
+                    <a href="/firm" class="block py-2 px-3 md:p-0 font-light text-sm relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-current after:transition-all after:duration-300 hover:after:bg-[#fbbf24]">
+                        ALL ABOUT US
+                    </a>
+                </li>
             </ul>
+        </div>
+
+        <div class="hidden w-full md:block md:w-auto">
+            <a href="/contact" class="py-2 px-3 md:p-0 group flex items-center gap-2 transition-colors font-light text-sm">
+                CONTACT US
+                <span class="inline-block group-hover:translate-x-1 transition-transform duration-300 group-hover:text-[#fbbf24]">
+                    <flux:icon.arrow-right />
+                </span>
+            </a>
         </div>
     </div>
 
@@ -233,79 +218,78 @@
             </svg>
         </button>
         <ul class="flex flex-col items-center justify-center h-full pt-16">
-            <li class="w-full text-center"><a href="/" class="block w-full py-4 text-lg font-medium text-black">Home</a></li>
+            <li class="w-full text-center"><a href="/" class="block w-full py-4 text-lg font-medium text-black">HOME</a></li>
+            <li class="w-full text-center"><a href="/services" class="block w-full py-4 text-lg font-medium text-black">OUR PROJECTS</a></li>
+            <li class="w-full text-center"><a href="/services" class="block w-full py-4 text-lg font-medium text-black">WHAT WE DO</a></li>
             <li class="w-full text-center mobile-dropdown">
-                <div class="dropdown-toggle block w-full py-4 cursor-pointer text-lg font-medium text-black">About</div>
-                <div class="mobile-dropdown-content">
-                    <a href="/firm">Our Company</a>
-                    <a href="/team">Our Team</a>
-                    <a href="/mission">Mission & Vision</a>
-                    <a href="/quality">Quality Management</a>
-                    <a href="/health">Health & Safety</a>
-                </div>
+                <a href="/firm">ALL ABOUT US</a>
             </li>
-            <li class="w-full text-center"><a href="/services" class="block w-full py-4 text-lg font-medium text-black">Services</a></li>
             <li class="w-full text-center mobile-dropdown">
-                <div class="dropdown-toggle block w-full py-4 cursor-pointer text-lg font-medium text-black">Projects</div>
-                <div class="mobile-dropdown-content">
-                    <a href="/projects/completed">Completed Projects</a>
-                    <a href="/projects/ongoing">Ongoing Projects</a>
-                    <a href="/projects/upcoming">Upcoming Projects</a>
-                    <a href="/projects/portfolio">Project Portfolio</a>
-                    <a href="/projects/case-studies">Case Studies</a>
-                </div>
+                <a href="/contact">CONTACT US</a>
             </li>
-            <li class="w-full text-center"><a href="/contact" class="block w-full py-4 text-lg font-medium text-black">Contact</a></li>
         </ul>
     </div>
 </nav>
 
 <!-- ✅ CONTENT AREA – pushed down so it doesn't hide under navbar -->
-<div class="pt-16 bg-black">
+<div>
     @yield('content')
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>AOS.init();</script>
 </div>
 
+
 <!-- Footer -->
-<footer class="bg-black pt-16 pb-8">
-    <hr class="mx-4 md:mx-96 my-4">
-    <div class="px-4 md:px-96">
-        <div class="grid md:grid-cols-4 grid-cols-2 mb-12">
-            <div class="flex flex-col">
-                <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Office</h3>
-                <ul class="flex flex-col gap-2">
-                    <li class="text-gray-400 text-sm">Accra, Ghana</li>
-                    <li class="text-gray-400 text-sm">14th Street, North Kaneshie</li>
-                    <li class="text-gray-400 text-sm">GXWH658</li>
+<footer class="bg-black pt-16 pb-2 m-2 rounded-b-lg">
+    <div class="flex flex-col mx-4 md:mx-14 my-4 text-white">
+        <a href="/" class="flex items-center space-x-1 rtl:space-x-reverse">
+            <img id="white-logo" src="{{ asset('assets/logo.png') }}" class="h-12" alt="Qualiden Group Limited Logo" />
+            <span id="big1" class="self-center text-md font-semibold whitespace-nowrap">Qualiden Group</span>
+        </a>
+
+        <h1 class="text-4xl md:text-6xl mt-6 font-semibold md:w-3/4">
+            Improving people's future through quality and innovative infrastructures
+        </h1>
+
+        <hr class="my-12 border-gray-700">
+
+        <div class="flex justify-between flex-col items-center md:flex-row gap-6">
+            <div>
+                <ul class="flex flex-row gap-6 text-gray-200 text-sm">
+                    <li><a href="/firm" class="hover:text-[#fbbf24] transition-colors">What we do</a></li>
+                    <li><a href="/projects" class="hover:text-[#fbbf24] transition-colors">Our projects</a></li>
+                    <li><a href="/about" class="hover:text-[#fbbf24] transition-colors">All about us</a></li>
                 </ul>
             </div>
-            <div class="flex flex-col">
-                <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Careers</h3>
-                <ul class="flex flex-col gap-2">
-                    <li><a href="#" class="text-gray-400 text-sm hover:text-white">careers</a></li>
-                    <li><a href="#" class="text-gray-400 text-sm hover:text-white">Life at Qualiden Group</a></li>
-                    <li><a href="mailto:careers@qualiden.com" class="text-gray-400 text-sm hover:text-white">careers@qualidengroup.com</a></li>
-                </ul>
-            </div>
-            <div class="flex flex-col">
-                <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Enquires</h3>
-                <ul class="flex flex-col gap-2">
-                    <li><a href="mailto:info@qualidengroup.com" class="text-gray-400 text-sm hover:text-white">info@qualidengroup.com</a></li>
-                </ul>
-            </div>
-            <div class="flex flex-col">
-                <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">New Business</h3>
-                <ul class="flex flex-col gap-2">
-                    <li><a href="mailto:newbusiness@qualidengroup.com" class="text-gray-400 text-sm hover:text-white">newbusiness@qualidengroup.com</a></li>
+
+            <div>
+                <ul class="flex flex-row gap-2">
+                    <li>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#fbbf24] transition-colors">
+                            <i class='bx bxl-linkedin text-2xl'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#fbbf24] transition-colors">
+                            <i class='bx bxl-instagram text-2xl'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#fbbf24] transition-colors">
+                            <i class='bx bxl-facebook text-2xl'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-white hover:text-[#fbbf24] transition-colors">
+                            <i class='bx bxl-tiktok text-2xl'></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <hr class="border-gray-800 my-8">
-        <div class="text-center">
-            <p class="text-sm text-gray-400">Copyright © 2026 Qualiden Group Limited. All rights reserved.</p>
-        </div>
+
+        <h1 class="text-sm font-light text-center mt-12">Qualiden | Copyright <i class='bx bx-copyright text-sm'></i> 2026 | All rights reserved</h1>
     </div>
 </footer>
 
