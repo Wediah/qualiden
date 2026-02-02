@@ -6,7 +6,7 @@
     <div class="pt-20">
         <div class="pt-24 px-4 md:px-14">
             <div class="flex flex-col-reverse gap-6 md:flex-row md:items-end md:justify-between">
-                <div class="mb-12 md:mb-20 md:w-2/3">
+                <div data-aos="fade-up" class="mb-12 md:mb-20 md:w-2/3">
                     <h1 class="text-black text-4xl md:text-8xl font-semibold leading-tight md:leading-none">
                         Engineering excellence, building thriving <br> futures
                     </h1>
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="mx-4 md:mx-14 flex md:flex-row flex-col gap-12 items-center pt-24">
+    <div data-aos="fade-up" class="mx-4 md:mx-14 flex md:flex-row flex-col gap-12 items-center pt-24">
         <h1 class="md:text-6xl text-3xl font-bold text-black w-1/2">
             Founded in Accra by engineers with extensive experience in civil engineering and construction
         </h1>
@@ -95,9 +95,9 @@
         <!-- Top Half - White -->
         <div class="absolute inset-x-0 top-0 h-1/2 bg-black z-0"></div>
         <!-- Bottom Half - Black -->
-        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-white z-0"></div>
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100 z-0"></div>
 
-        <div class=" mx-auto relative z-10">
+        <div data-aos="fade-up" class=" mx-auto relative z-10">
             <!-- Header Text -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
                 <div class="lg:pr-12">
@@ -117,7 +117,7 @@
                 <h3 class="text-2xl font-bold mb-4 md:mb-0 text-white">Our projects</h3>
                 <div class="flex gap-3">
                     <a href="/projects"
-                       class="px-6 py-2 bg-black text-white rounded-full flex items-center gap-2 font-medium hover:bg-gray-800 transition-colors">
+                       class="px-6 py-2 bg-[#fbbf24] text-white rounded-full flex items-center gap-2 font-medium hover:bg-[#fbbf20] transition-colors">
                         View more
                         <flux:icon.arrow-right class="w-4 h-4" />
                     </a>
@@ -166,7 +166,7 @@
     </div>
 
     <div class="py-16 px-4 md:px-14 bg-white">
-        <div class="max-w-6xl mx-auto">
+        <div class=" mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 <!-- Left Menu -->
                 <div class="space-y-6">
@@ -179,30 +179,24 @@
                                 [
                                     'id' => 'why-us',
                                     'title' => 'Why Us',
-                                    'image' => 'assets/why-us.jpg',
-                                    'heading' => 'Work culture',
-                                    'content' => 'We are building a long-term sustainable business that creates more economic, environmental and social value through greater corporate responsibility. Wiyasa cares about all stakeholders and responsibility is at the core of our business.'
+                                    'image' => 'assets/whyus.jpeg',
+                                     'heading' => 'Tailored Service & Proven Excellence',
+                                    'content' => 'We deliver tailored services with relevant experience, leading-edge H&S systems, and hands-on management. Our success comes from relentless attention to detail, an experienced team, and a competitive edge in reliable project execution. We are committed to exceeding client expectations through value-add engineering solutions.'
                                 ],
                                 [
                                     'id' => 'investors',
-                                    'title' => 'Be Our Investors',
-                                    'image' => 'assets/investors.jpg',
-                                    'heading' => 'Investment opportunity',
-                                    'content' => 'Qualiden Engineering Limited offers a unique opportunity for investors seeking exposure to Ghana’s growing infrastructure sector. With a proven track record and strong management team, we deliver consistent returns through strategic project execution.'
+                                    'title' => 'Health, Safety and Welfare',
+                                    'image' => 'assets/safety.jpeg',
+                                    'heading' => 'Absolute Pre-Requisite: Zero Harm',
+                                    'content' => 'The health and safety of our employees and all those affected by our operations is an absolute pre-requisite. Our Board and staff are fully committed to implementing and continuously improving Integrated Management Systems that align with industry best practices. Safety is non-negotiable in every operation.'
                                 ],
-                                [
-                                    'id' => 'webcast',
-                                    'title' => 'Our results webcast',
-                                    'image' => 'assets/webcast.jpg',
-                                    'heading' => 'Transparency & reporting',
-                                    'content' => 'We believe in open communication. Our quarterly webcasts provide detailed insights into project progress, financial performance, and strategic direction — ensuring stakeholders are always informed.'
-                                ],
+
                                 [
                                     'id' => 'join-us',
-                                    'title' => 'Join with Us',
-                                    'image' => 'assets/join-us.jpg',
-                                    'heading' => 'Career growth',
-                                    'content' => 'We invest in our people. Join a team where expertise is valued, innovation is encouraged, and professional development is prioritized. Grow with us as we expand across West Africa.'
+                                    'title' => 'Quality Management',
+                                    'image' => 'assets/quality.jpeg',
+                                    'heading' => 'Get It Right First Time, Every Time',
+                                    'content' => 'Our Quality Management System follows six core principles: long-term quality control, nurturing quality culture, client-defined standards, quality planning, collaborative delivery ("Work Together to Deliver the Best – First Time"), and continuous improvement. We are committed to projects that not only meet but exceed expectations.'
                                 ]
                             ];
                         @endphp
@@ -228,7 +222,7 @@
                         </button>
                         <button
                             id="nextBtn"
-                            class="px-6 py-2 bg-black text-white rounded-full flex items-center gap-2 font-medium hover:bg-gray-800 transition-colors"
+                            class="px-6 py-2 bg-[#fbbf24] text-white rounded-full flex items-center gap-2 font-medium hover:bg-gray-800 transition-colors"
                         >
                             Next
                             <flux:icon.arrow-right class="w-4 h-4" />
@@ -240,11 +234,15 @@
                 <div class="space-y-6">
                     <div class="relative h-[500px] md:h-[600px] rounded-xl overflow-hidden">
                         <div class="absolute inset-0 bg-cover bg-center" id="heroImage"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+                        <!-- 🔥 Strong, readable overlay -->
+                        <div class="absolute inset-0 bg-black/70"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
                         <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                            <h2 class="text-2xl md:text-3xl font-bold mb-3" id="sectionHeading">Work culture</h2>
+                            <h2 class="text-2xl md:text-3xl font-bold mb-3" id="sectionHeading">Tailored Service & Proven Excellence</h2>
                             <p class="text-gray-200 leading-relaxed mb-6" id="sectionContent">
-                                We are building a long-term sustainable business that creates more economic, environmental and social value through greater corporate responsibility. Wiyasa cares about all stakeholders and responsibility is at the core of our business.
+                                We deliver tailored services with relevant experience, leading-edge H&S systems, and hands-on management...
                             </p>
                             <div class="flex items-center gap-4">
                                 <a href="#" class="text-white font-medium flex items-center gap-2">
