@@ -110,6 +110,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-black mb-3">Our Location</h3>
                     <p class="text-gray-600">
+                        GW-0291-1260 <br>
                         Accra, Ghana
                     </p>
                 </div>

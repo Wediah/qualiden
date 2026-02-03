@@ -10,10 +10,25 @@
                     <h1 class="text-black text-4xl md:text-8xl font-semibold leading-tight md:leading-none">
                         Engineering excellence, building thriving <br> futures
                     </h1>
+
+                    <flux:button
+                        href="https://google.com"
+                        icon:trailing="arrow-up-right"
+                        class="text-xl rounded-full text-white font-semibold p-4 block md:hidden mt-8"
+                    >
+                        Get a quote
+                    </flux:button>
                 </div>
 
                 <div class="md:w-2/6">
-                    <div class="h-px w-16 bg-[#fbbf24] mb-6"></div>
+                    <flux:button
+                        href="https://google.com"
+                        icon:trailing="arrow-up-right"
+                        class="text-xl rounded-full text-white font-semibold p-4 hidden md:block"
+                    >
+                        Get a quote
+                    </flux:button>
+                    <div class="h-px w-32 bg-[#fbbf24] my-6"></div>
                     <p class="text-lg md:text-3xl text-gray-700 leading-relaxed">
                         Develop new solutions to meet changing needs, leveraging our deep customer insight,
                         practical expertise and broad range of capabilities.
@@ -30,7 +45,7 @@
 
     <div data-aos="fade-up" class=" mx-4 md:mx-14 flex md:flex-row flex-col gap-12 items-center pt-24">
         <h1 class="md:text-6xl text-3xl font-bold text-black md:w-1/2">
-            Founded in Accra by engineers with extensive experience in civil engineering and construction
+            Established in Accra, our company was founded by a team of engineers with comprehensive experience across civil engineering and construction disciplines.
         </h1>
 
         <div class="flex flex-col gap-12 md:w-1/2">
@@ -61,7 +76,7 @@
                         <span class="counter" data-target="40">0</span>+
                     </div>
                     <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                        Qualiden Group Limited has a over 23 plants and machinery ready in active service
+                        Qualiden Group Limited has over 23 plants <br> and machinery ready in active service
                     </p>
                 </div>
 
@@ -72,7 +87,7 @@
                         <span class="counter" data-target="6">0</span>+
                     </div>
                     <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                        We have served and still serving over 6 sectors from residential to healthcare.
+                        We have served and still serving <br> over 6 sectors from residential to healthcare.
                     </p>
                 </div>
 
@@ -83,7 +98,7 @@
                         <span class="counter" data-target="5">0</span>
                     </div>
                     <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                        Qualiden Group can a maximum of 1-5 projects at time with attention to detail
+                        Qualiden Group can a maximum of 1-5 <br> projects at time with attention to detail
                     </p>
                 </div>
             </div>

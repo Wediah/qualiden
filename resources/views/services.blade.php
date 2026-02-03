@@ -3,7 +3,7 @@
 @section('title', 'Our Services')
 
 @section('content')
-    <div class=" bg-white md:pt-36 pt-12 pb:12">
+    <div class=" bg-white md:pt-36 pt-24 pb:12">
         <div class="flex flex-col gap-2 px-4 md:px-14">
             <h1 class="text-4xl font-bold text-center text-black">
                 SERVICES <br>

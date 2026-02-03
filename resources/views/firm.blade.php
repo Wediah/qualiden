@@ -3,7 +3,7 @@
 @section('title', 'Firm Profile')
 
 @section('content')
-    <div class="px-4 md:px-14 bg-white md:pt-36 pt-12 pb:12">
+    <div class="px-4 md:px-14 bg-white md:pt-36 pt-24 pb:12">
         <div class="flex flex-col gap-2">
             <h1 class="text-4xl font-bold text-center">
                 ABOUT <br>
@@ -82,9 +82,12 @@
             </div>
         </div>
 
-        <div class="flex flex-row md;flex-col gap-6 pt-24">
-        <h1 class="md:text-6xl text-3xl text-[#fbbf24] w-1/2">THIS IS  <br> <span class="text-gray-300">OUR STORY</span></h1>
-            <p class="text-md text-gray-500 w-1/2">
+        <div class="flex flex-col md:flex-row gap-6 pt-24">
+            <h1 class="md:text-6xl text-3xl text-[#fbbf24] md:w-1/2 w-full">
+                THIS IS <br>
+                <span class="text-gray-300">OUR STORY</span>
+            </h1>
+            <p class="text-md text-gray-500 md:w-1/2 w-full">
                 The Company QUALIDEN ENGINEERING LIMITED was
                 founded in Accra, Ghana by two hard working Engineers with
                 vast amount of working experience in Civil Engineering,
@@ -218,7 +221,7 @@
 
         <div class="pt-24">
             <h1 class="md:text-6xl text-3xl text-gray-300 w-1/2">MEET OUR  <br> <span class="text-[#fbbf24]">PROFESSIONAL TEAM</span></h1>
-            <p class="text-sm text-gray-300 w-1/3">
+            <p class="text-sm text-gray-300 md:w-1/3">
                 A dedicated group of skilled expects commited to delivering quality workmanship and exceptional service of very project
             </p>
 
@@ -414,7 +417,7 @@
 
         <div class="py-24">
             <div>
-                <h2 class="md:text-2xl text-xl text-[#fbbf24]">OUR <span class="text-gray-300">PARTNERS</span> </h2>
+                <h2 class="md:text-2xl text-xl text-[#fbbf24]">OUR <span class="text-gray-300">CLIENTS</span> </h2>
                 <div class="flex flow-row gap-6 pt-12">
                     <img width="158" height="48" src="{{ asset('assets/desimone-logo.svg') }}" alt="Transistor" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
                     <img width="158" height="48" src="{{ asset('assets/engplan.png') }}" alt="Reform" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
