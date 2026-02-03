@@ -28,12 +28,12 @@
         </div>
     </div>
 
-    <div data-aos="fade-up" class="mx-4 md:mx-14 flex md:flex-row flex-col gap-12 items-center pt-24">
-        <h1 class="md:text-6xl text-3xl font-bold text-black w-1/2">
+    <div data-aos="fade-up" class=" mx-4 md:mx-14 flex md:flex-row flex-col gap-12 items-center pt-24">
+        <h1 class="md:text-6xl text-3xl font-bold text-black md:w-1/2">
             Founded in Accra by engineers with extensive experience in civil engineering and construction
         </h1>
 
-        <div class="flex flex-col gap-12 w-1/2">
+        <div class="flex flex-col gap-12 md:w-1/2">
             <p class="text-2xl font-normal text-gray-500">
                 We specialize in civil engineering, general construction works,
                 pipe systems (HDPE welding, PVC, and steel fittings), engineering chemicals,
@@ -129,7 +129,7 @@
                 <!-- Project 1 - Tema Port Expansion -->
                 <a href="#" class="block group relative overflow-hidden rounded-xl bg-white border border-gray-200">
                     <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/tema.jpeg') }}');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
                         <div class="flex justify-between items-start">
                             <div>
@@ -245,7 +245,7 @@
                                 We deliver tailored services with relevant experience, leading-edge H&S systems, and hands-on management...
                             </p>
                             <div class="flex items-center gap-4">
-                                <a href="#" class="text-white font-medium flex items-center gap-2">
+                                <a href="/firm" class="text-white font-medium flex items-center gap-2">
                                     Read more
                                     <flux:icon.arrow-top-right-on-square class="w-5 h-5" />
                                 </a>
