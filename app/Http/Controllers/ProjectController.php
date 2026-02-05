@@ -85,7 +85,7 @@ class ProjectController extends Controller
             return response()->json($project, 201);
         }
 
-        return redirect()->route('projects.index')->with('success', 'Project created.');
+        return redirect()->route('dashboard')->with('success', 'Project created.');
     }
 
     /**
