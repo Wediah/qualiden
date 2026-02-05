@@ -65,12 +65,12 @@
 
     <!-- Back Button -->
     <div class="text-center my-12">
-        <div class="text-black font-semibold text-lg md:text-6xl">Keep Going! <br> There is more to see</div>
+        <div class="text-gray-300 font-semibold text-lg md:text-6xl">Keep Going! <br> There is more to see</div>
         <div class="flex justify-center mt-4 gap-6">
-            <a href="/contact" class="rounded-md bg-green-800 text-white px-4 py-2">
+            <a href="/contact" class="rounded-md bg-[#fbbf24] text-white px-4 py-2">
                 <i class="fas fa-arrow-right"></i> Contact
             </a>
-            <a href="{{ route('projects.index') }}" class="rounded-md border-gray-500 border-2 text-gray-500 px-4 py-2">
+            <a href="{{ route('projects') }}" class="rounded-md border-gray-500 border-2 text-gray-500 px-4 py-2">
                 <i class="fas fa-arrow-left"></i> View more projects
             </a>
         </div>

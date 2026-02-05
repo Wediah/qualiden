@@ -14,8 +14,8 @@ Route::view('/services', 'services')->name('services');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/quality', 'quality')->name('quality');
 Route::view('/health', 'health')->name('health');
+Route::view('/projects', 'projects')->name('projects');
 
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/create', [ProjectController::class, 'create'])->middleware('auth', 'admin')->name('projects.create');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 

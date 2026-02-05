@@ -27,6 +27,7 @@ class ProjectController extends Controller
 
     /**
      * Create a new project and optionally store uploaded images.
+     *
      * @throws Throwable
      */
     public function store(Request $request)
@@ -59,7 +60,6 @@ class ProjectController extends Controller
                 }
             }
 
-
             DB::commit();
         } catch (Throwable $e) {
             DB::rollBack();
@@ -67,7 +67,10 @@ class ProjectController extends Controller
             // Attempt to clean up any files that may have been stored
             if (isset($project) && $project->images()->exists()) {
                 foreach ($project->images as $img) {
-                    try { Storage::disk($img->disk)->delete($img->path); } catch (Throwable $ex) { /* ignore */ }
+                    try {
+                        Storage::disk($img->disk)->delete($img->path);
+                    } catch (Throwable $ex) { /* ignore */
+                    }
                 }
             }
 
@@ -87,6 +90,7 @@ class ProjectController extends Controller
 
     /**
      * Update an existing project and append any uploaded images.
+     * @throws Throwable
      */
     public function update(Request $request, Project $project)
     {
@@ -106,7 +110,7 @@ class ProjectController extends Controller
                 'status' => $validated['status'] ?? null,
                 'client' => $validated['client'] ?? null,
                 'bio' => $validated['bio'] ?? null,
-            ], fn($v) => !is_null($v)));
+            ], fn ($v) => ! is_null($v)));
             $project->save();
 
             if ($request->hasFile('images')) {
@@ -116,12 +120,7 @@ class ProjectController extends Controller
                     $path = $file->store("projects/{$project->id}", 'public');
 
                     $project->images()->create([
-                        'filename' => $file->getClientOriginalName(),
                         'path' => $path,
-                        'disk' => 'public',
-                        'mime_type' => $file->getClientMimeType(),
-                        'size' => $file->getSize(),
-                        'order' => $currentMax + $i + 1,
                     ]);
                 }
             }
@@ -131,9 +130,12 @@ class ProjectController extends Controller
             DB::rollBack();
 
             // cleanup newly stored files if any
-            if (isset($project) && $project->images()->exists()) {
+            if ($project->images()->exists()) {
                 foreach ($project->images as $img) {
-                    try { Storage::disk($img->disk)->delete($img->path); } catch (Throwable $ex) { /* ignore */ }
+                    try {
+                        Storage::disk($img->disk)->delete($img->path);
+                    } catch (Throwable $ex) { /* ignore */
+                    }
                 }
             }
 
@@ -148,7 +150,7 @@ class ProjectController extends Controller
             return response()->json($project);
         }
 
-        return redirect()->route('projects.index')->with('success', 'Project updated.');
+        return redirect()->route('projects')->with('success', 'Project updated.');
     }
 
     /**
@@ -173,9 +175,8 @@ class ProjectController extends Controller
             return response()->noContent();
         }
 
-        return redirect()->route('projects.index')->with('success', 'Project deleted.');
+        return redirect()->route('projects')->with('success', 'Project deleted.');
     }
-
 
     /**
      * Display the specified project.

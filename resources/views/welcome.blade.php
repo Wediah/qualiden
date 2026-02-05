@@ -11,23 +11,25 @@
                         Engineering excellence, building thriving <br> futures
                     </h1>
 
-                    <flux:button
-                        href="https://google.com"
-                        icon:trailing="arrow-up-right"
-                        class="text-xl rounded-full text-white font-semibold p-4 block md:hidden mt-8"
-                    >
-                        Get a quote
-                    </flux:button>
+                    <div class="mt-6 md:hidden block">
+                        <flux:button
+                            href="/contact"
+                            icon:trailing="arrow-up-right"
+                        >
+                            Get a quote
+                        </flux:button>
+                    </div>
                 </div>
 
                 <div class="md:w-2/6">
-                    <flux:button
-                        href="https://google.com"
-                        icon:trailing="arrow-up-right"
-                        class="text-xl rounded-full text-white font-semibold p-4 hidden md:block"
-                    >
-                        Get a quote
-                    </flux:button>
+                    <div class="hidden md:block">
+                        <flux:button
+                            href="/contact"
+                            icon:trailing="arrow-up-right"
+                        >
+                            Get a quote
+                        </flux:button>
+                    </div>
                     <div class="h-px w-32 bg-[#fbbf24] my-6"></div>
                     <p class="text-lg md:text-3xl text-gray-700 leading-relaxed">
                         Develop new solutions to meet changing needs, leveraging our deep customer insight,

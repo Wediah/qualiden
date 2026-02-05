@@ -190,7 +190,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="projects" class="block py-2 px-3 md:p-0 font-light text-sm relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-current after:transition-all after:duration-300 hover:after:bg-[#fbbf24]">OUR PROJECTS
+                    <a href="/projects" class="block py-2 px-3 md:p-0 font-light text-sm relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 hover:after:w-full after:bg-current after:transition-all after:duration-300 hover:after:bg-[#fbbf24]">OUR PROJECTS
                     </a>
                 </li>
                 <li>
@@ -220,7 +220,7 @@
         </button>
         <ul class="flex flex-col items-center justify-center h-full pt-16">
             <li class="w-full text-center"><a href="/" class="block w-full py-4 text-lg font-medium text-black">HOME</a></li>
-            <li class="w-full text-center"><a href="/services" class="block w-full py-4 text-lg font-medium text-black">OUR PROJECTS</a></li>
+            <li class="w-full text-center"><a href="/projects" class="block w-full py-4 text-lg font-medium text-black">OUR PROJECTS</a></li>
             <li class="w-full text-center"><a href="/services" class="block w-full py-4 text-lg font-medium text-black">WHAT WE DO</a></li>
             <li class="w-full text-center mobile-dropdown">
                 <a href="/firm">ALL ABOUT US</a>
