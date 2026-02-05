@@ -410,7 +410,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="h-1 bg-gradient-to-r from-green-500 to-green-700"></div>
+                    <div class="h-1 bg-linear-to-r from-green-500 to-green-700"></div>
                 </div>
             </div>
         </div>
@@ -418,7 +418,7 @@
         <div class="py-24">
             <div>
                 <h2 class="md:text-2xl text-xl text-[#fbbf24]">OUR <span class="text-gray-300">CLIENTS</span> </h2>
-                <div class="flex flow-row gap-6 pt-12">
+                <div class="flex flow-row flex-row-wrap gap-6 pt-12">
                     <img width="158" height="48" src="{{ asset('assets/desimone-logo.svg') }}" alt="Transistor" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
                     <img width="158" height="48" src="{{ asset('assets/engplan.png') }}" alt="Reform" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
                     <img width="158" height="48" src="{{ asset('assets/logo-eiffage.svg') }}" alt="Transistor" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
