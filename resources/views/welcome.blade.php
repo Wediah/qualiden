@@ -1,3 +1,4 @@
+@php use App\Models\Project; @endphp
 @extends('layouts.main_layout')
 
 @section('title', 'Welcome')
@@ -141,43 +142,33 @@
                 </div>
             </div>
 
-            <!-- Project Cards Grid -->
+            @php
+                $projects = Project::orderBy('created_at', 'desc')->take(2)->get();
+            @endphp
+
+
+                <!-- Project Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                @foreach ($projects as $project)
                 <!-- Project 1 - Tema Port Expansion -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl bg-white border border-gray-200">
-                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/tema.jpeg') }}');"></div>
+                <a href="{{ route('projects.show', $project) }}"
+                   aria-label="{{ $project->name }}"
+                   class="block group relative overflow-hidden rounded-xl bg-white border border-gray-200"
+                >
+                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{  Storage::url($project->images->first()->path) }}');"></div>
                     <div class="absolute inset-0 bg-linear-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-xl font-bold">Tema Port Expansion Project Phase 2</h3>
-                                <p class="text-gray-300 text-sm mt-1">Firefighting & Service Water Lines</p>
+                                <h3 class="text-xl font-bold">{{ $project->name }}</h3>
                             </div>
-                            <span class="text-gray-300 text-sm">Ghana</span>
                         </div>
                         <div class="mt-4 flex justify-end">
                             <flux:icon.arrow-top-right-on-square class="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" />
                         </div>
                     </div>
                 </a>
-
-                <!-- Project 2 - GWCL Pipeline -->
-                <a href="#" class="block group relative overflow-hidden rounded-xl bg-white border border-gray-200">
-                    <div class="aspect-video bg-cover bg-center" style="background-image: url('{{ asset('assets/aska.jpeg') }}');"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold">Aska Energy Water Treatment Plant</h3>
-                                <p class="text-gray-300 text-sm mt-1">Water treatment</p>
-                            </div>
-                            <span class="text-gray-300 text-sm">Accra, Ghana</span>
-                        </div>
-                        <div class="mt-4 flex justify-end">
-                            <flux:icon.arrow-top-right-on-square class="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" />
-                        </div>
-                    </div>
-                </a>
+                @endforeach
             </div>
         </div>
     </div>
