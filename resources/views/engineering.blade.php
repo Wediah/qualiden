@@ -44,7 +44,7 @@
                 <div class="group">
                     <div class="bg-gray-100 rounded-xl h-48 overflow-hidden mb-4">
                         <img
-                            src="{{ asset('assets/water.jpeg') }}"
+                            src="{{ asset('assets/machine.jpg') }}"
                             alt="HDPE Welding Machine"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
@@ -57,7 +57,7 @@
                 <div class="group">
                     <div class="bg-gray-100 rounded-xl h-48 overflow-hidden mb-4">
                         <img
-                            src="{{ asset('assets/water.jpeg') }}"
+                            src="{{ asset('assets/excavator.webp') }}"
                             alt="Excavation Equipment"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
@@ -70,7 +70,7 @@
                 <div class="group">
                     <div class="bg-gray-100 rounded-xl h-48 overflow-hidden mb-4">
                         <img
-                            src="{{ asset('assets/water.jpeg') }}"
+                            src="{{ asset('assets/pump.jpg') }}"
                             alt="Concrete Pump"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
@@ -83,7 +83,7 @@
                 <div class="group">
                     <div class="bg-gray-100 rounded-xl h-48 overflow-hidden mb-4">
                         <img
-                            src="{{ asset('assets/water.jpeg') }}"
+                            src="{{ asset('assets/watrprove.webp') }}"
                             alt="Waterproofing Equipment"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
@@ -96,7 +96,7 @@
                 <div class="group">
                     <div class="bg-gray-100 rounded-xl h-48 overflow-hidden mb-4">
                         <img
-                            src="{{ asset('assets/water.jpeg') }}"
+                            src="{{ asset('assets/lift.jpg') }}"
                             alt="Lifting Equipment"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
@@ -109,7 +109,7 @@
                 <div class="group">
                     <div class="bg-gray-100 rounded-xl h-48 overflow-hidden mb-4">
                         <img
-                            src="{{ asset('assets/testing-kit.jpg') }}"
+                            src="{{ asset('assets/test.webp') }}"
                             alt="Testing Equipment"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         >
