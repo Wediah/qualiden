@@ -106,7 +106,7 @@
                 projects. We also provide design inputs and engineering
                 solutions as value-add services to our clients.
                 <br>
-                WORKS ELECTRICAL AND ENGINEERING GENERAL
+                ELECTRICAL WORKS AND ENGINEERING GENERAL
                 We have a broad portfolio of successfully completed
                 projects across a range of sectors including Residential,
                 Restoration / Refurbishment, Hospitality, Commercial,
