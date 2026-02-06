@@ -4,14 +4,12 @@
 
 @section('content')
     <div class="px-4 md:px-14 bg-white md:pt-36 pt-24 pb-12">
-        <div class="flex flex-col gap-2 text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">
-                OUR <br>
-                <span class="text-[#fbbf24]">ENGINEERING</span>
-            </h1>
-            <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
-                Every project, every time: executed exactly to your engineering specifications with unwavering precision.
-            </p>
+        <div class="flex justify-center items-center h-24 mb-16">
+            <img
+                src="{{ asset('assets/engineering.png') }}"
+                class="h-40 md:h-80 w-40 md:w-80"
+                alt="Qualiden Engineering Logo"
+            />
         </div>
 
         <!-- About Section -->
