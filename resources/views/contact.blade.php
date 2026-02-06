@@ -50,7 +50,7 @@
                     <div class="space-y-6">
                         <div>
                             <p class="text-sm text-gray-400 mb-2">Or reach us directly</p>
-                            <a href="mailto:dennisnsoh@qualiden.com" class="text-xl font-semibold text-white hover:text-[#fbbf24] transition-colors">
+                            <a href="mailto:dennisnsoh@qualidengroup.com" class="text-xl font-semibold text-white hover:text-[#fbbf24] transition-colors">
                                 dennisnsoh@qualiden.com
                             </a>
                         </div>
@@ -123,7 +123,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-black mb-3">Email Us</h3>
-                    <a href="mailto:dennisnsoh@qualiden.com" class="text-gray-600 hover:text-[#fbbf24] transition-colors">
+                    <a href="mailto:dennisnsoh@qualidengroup.com" class="text-gray-600 hover:text-[#fbbf24] transition-colors">
                         dennisnsoh@qualiden.com
                     </a>
                 </div>
