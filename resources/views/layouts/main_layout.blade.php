@@ -261,6 +261,7 @@
                     <li><a href="/firm" class="hover:text-[#fbbf24] transition-colors">What we do</a></li>
                     <li><a href="/projects" class="hover:text-[#fbbf24] transition-colors">Our projects</a></li>
                     <li><a href="/about" class="hover:text-[#fbbf24] transition-colors">All about us</a></li>
+                    <li><a href="/policy" class="hover:text-[#fbbf24] transition-colors">Our company policy</a></li>
                     <li><a href="/engineering" class="hover:text-[#fbbf24] transition-colors">Qualiden engineering</a></li>
                 </ul>
 

@@ -203,8 +203,16 @@
                                     'id' => 'join-us',
                                     'title' => 'Quality Management',
                                     'image' => 'assets/quality.jpeg',
-                                    'heading' => 'Get It Right First Time, Every Time',
-                                    'content' => 'Our Quality Management System follows six core principles: long-term quality control, nurturing quality culture, client-defined standards, quality planning, collaborative delivery ("Work Together to Deliver the Best – First Time"), and continuous improvement. We are committed to projects that not only meet but exceed expectations.'
+                                    'heading' => 'Quality That\'s Engineered In, Not Checked In',
+                                    'content' => 'Our Quality Management System follows six core principles: operation of a structured QMS with defined procedures and controls, compliance with client specifications and industry standards, quality control across materials and workmanship, "right first time" project delivery, and continuous monitoring for ongoing improvement. Every process is designed to ensure excellence is built into every phase of your project.'
+                                ],
+
+                                [
+                                    'id' => 'environment',
+                                    'title' => 'Environmental Management',
+                                    'image' => 'assets/plant.jpg',
+                                    'heading' => 'Sustainability at Every Stage',
+                                    'content' => 'We integrate environmental stewardship into everything we build. From planning through completion, we use sustainable materials, employ modern construction methods that minimize impact, and source responsibly from compliant suppliers. Our commitment extends beyond compliance—we continuously improve our environmental practices to exceed client and regulatory expectations while reducing our footprint across all projects.'
                                 ]
                             ];
                         @endphp

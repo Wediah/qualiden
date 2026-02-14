@@ -88,51 +88,28 @@
                 <span class="text-gray-300">OUR STORY</span>
             </h1>
             <p class="text-md text-gray-500 md:w-1/2 w-full">
-                The Company QUALIDEN ENGINEERING LIMITED was
-                founded in Accra, Ghana by two hard working Engineers with
-                vast amount of working experience in Civil Engineering,
-                General Construction works, Pipe works (HDPE Pipe welding
-                and Fittings, PVC and Steel), Engineering Chemicals, Water
-                Proofing and Concrete Protection. Since then, the company
-                has grown by undertaking some challenging projects and has
-                accumulated experiences, skills and know-how in design and
-                building solutions, project management services, building
-                trades and related engineering services with reputation.
+                Qualiden Engineering Limited is a Ghanaian-owned engineering and
+                construction firm headquartered in Accra, established by experienced
+                civil engineers with extensive expertise in water infrastructure, pipeline
+                systems, and civil engineering works.
                 <br>
-                Qualiden Engineering Limited takes on the role
-                of main and sub - contractors for small to medium size
-                projects. We perform project management services to
-                coordinate specialist trades for industrial and commercial
-                projects. We also provide design inputs and engineering
-                solutions as value-add services to our clients.
+                ne its inception the company has delivered are of teal
+                complex projects, building proven capability in HDPE, PVC, and steel
+                pipeline installations, waterproofing and concrete protection systems,
+                and related engineering services.
                 <br>
-                ELECTRICAL WORKS AND ENGINEERING GENERAL
-                We have a broad portfolio of successfully completed
-                projects across a range of sectors including Residential,
-                Restoration / Refurbishment, Hospitality, Commercial,
-                Industrial and Healthcare. We have built our reputation on our
-                client focus and hands-on approach. We are proud of the fact
-                that our workload comes from our ability to handle multiple
-                jobs with excellent results. We are a business that have a
-                strong reputation for a competitive edge and a reliable
-                execution of all projects undertaken. This is achieved through
-                our relentless attention to detail and an experienced team with
-                the drive and customer focus to ensure client satisfaction is
-                achieved on our projects.
+                Qualiden Engineering operates as both a main contractor and specialist
+                subcontractor, providing disciplined project execution, coordination of
+                specialist trades, and engineering-led solutions for industrial and commercial developments. The company is recognised for its technical
+                competence, structured project management approach, and consis-
+                tent delivery to specification.
                 <br>
-                We continue to invest in modern business practices and
-                management techniques in order to ensure that we remain
-                at the cutting edge of our industry. We continue to build on
-                our reputation with our focus firmly on growing the ability of
-                the business to deliver in new and innovative ways.
-                Our ambition and goals are to use our years of experience in
-                the industry to meet our client’s expectation.
-                To deliver quality projects and value for money to our
-                clients; our success and reputation today have been
-                testament to this wisdom. The company have a wealth of
-                experience in mixed-use developments, new build and
-                refurbishment, in design and build and traditional forms of
-                contracting.
+                We have a broad portfolio of successfully completed projects across a
+                range of sectors including Residential, Restoration / Refurbishment,
+                Hospitality, Commercial, Industrial and Healthcare. We have built our
+                reputation on our client focus and hands-on approach. We are proud of
+                the fact that our workload comes from our ability to handle multiple
+                jobs with excellent results.
             </p>
         </div>
 
@@ -166,12 +143,15 @@
 
                     <!-- Title & Description -->
                     <h2 class="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight">
-                        Our mission is to provide exceptional construction solutions built on craftsmanship, precision, and a deep commitment to excellence.
+                        To consistently deliver complex engineering projects to the highest stan-
+                        dards o f safety, quality, and compliance through engineering-led leader-
+                        ship, robust systems, and a commitment to continuous improvement.
                     </h2>
 
                     <p class="text-lg text-gray-500 leading-relaxed">
-                        We aim to deliver every project with unmatched attention to detail, honest communication.
+                        This means every project we touch—from concept to completion—benefits from technical excellence at every level. Our engineering-led approach ensures decisions are grounded in expertise, our systems guarantee consistency, and our commitment to continuous improvement means we're always finding better, safer, and more efficient ways to build.
                     </p>
+
                 </div>
             </div>
 
@@ -196,15 +176,17 @@
 
                     <!-- Title & Description -->
                     <h2 class="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight">
-                        Our aim is to be our clients' first choice for both construction and engineering related services.
+                        To be a globally respected engineering
+                        group delivering critical infrastructure
+                        and technical solutions that set the
+                        benchmark for quality, safety, and
+                        long-term performance in Africa and
+                        beyond.
                     </h2>
 
-                    <p class="text-lg text-gray-500 leading-relaxed mb-4">
-                        Customers and partners see us as integral to their success. We will anticipate their needs, and deliver on every commitment we make.
-                    </p>
-
                     <p class="text-lg text-gray-500 leading-relaxed">
-                        Our people, our focus and our track record for delivery present a very strong case for choosing our company as the preferred construction partner.
+                        By combining world-class engineering expertise with an unwavering commitment to excellence,
+                        we're not just constructing infrastructure—we're building Africa's tomorrow, one landmark project at a time.
                     </p>
                 </div>
 
@@ -215,6 +197,47 @@
                         alt="Our Vision"
                         class="w-full h-96 object-cover rounded-lg shadow-lg"
                     />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-24">
+                <!-- Image -->
+                <div>
+                    <img
+                        src="{{ asset('assets/tema.jpeg') }}"
+                        alt="Our Core Values"
+                        class="w-full h-96 object-cover rounded-lg shadow-lg"
+                    />
+                </div>
+
+                <!-- Text Content -->
+                <div>
+                    <!-- Icon -->
+                    <div class="mb-6">
+                        <div class="w-16 h-16 bg-[#fbbf24] rounded-lg flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3H5L2 9L12 22L22 9L19 3ZM12 18.5L5.5 9L8 5H16L18.5 9L12 18.5Z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Label -->
+                    <p class="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-4">
+                        OUR MANTRA
+                    </p>
+
+                    <!-- Title & Description -->
+                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight">
+                        Attitude. Efficiency. Safety.
+                    </h2>
+
+                    <p class="text-lg text-gray-500 leading-relaxed mb-4">
+                        Our business is built around these three non-negotiable principles. The ATTITUDE we bring to every challenge, the EFFICIENCY with which we deliver on our commitments, and our unwavering belief in SAFETY—these are the standards that precede us in everything we do.
+                    </p>
+
+                    <p class="text-lg text-gray-500 leading-relaxed">
+                        Rooted in world-class business ethics, our principles extend beyond the job site. We hold ourselves to the highest environmental standards and place exceptional customer satisfaction at the heart of every transaction. Because how we build is just as important as what we build.
+                    </p>
                 </div>
             </div>
         </div>
