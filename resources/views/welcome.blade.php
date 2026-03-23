@@ -299,7 +299,7 @@
                         <div class="relative overflow-hidden h-full">
 
                             <img
-                                src="{{ asset('assets/slide1.jpeg') }}"
+                                src="{{ asset('assets/oil.png') }}"
                                 alt="Water pipes"
                                 class="block w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-15"
                             />
@@ -374,7 +374,7 @@
                         <div class="relative overflow-hidden h-full">
 
                             <img
-                                src="{{ asset('assets/slide1.jpeg') }}"
+                                src="{{ asset('assets/marine.jpg') }}"
                                 alt="Water pipes"
                                 class="block w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-15"
                             />
@@ -412,7 +412,7 @@
                         <div class="relative overflow-hidden h-full">
 
                             <img
-                                src="{{ asset('assets/slide1.jpeg') }}"
+                                src="{{ asset('assets/fire.jpeg') }}"
                                 alt="Water pipes"
                                 class="block w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-15"
                             />
@@ -450,7 +450,7 @@
                         <div class="relative overflow-hidden h-full">
 
                             <img
-                                src="{{ asset('assets/slide1.jpeg') }}"
+                                src="{{ asset('assets/energy.jpg') }}"
                                 alt="Water pipes"
                                 class="block w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-15"
                             />
@@ -488,7 +488,7 @@
                         <div class="relative overflow-hidden h-full">
 
                             <img
-                                src="{{ asset('assets/slide1.jpeg') }}"
+                                src="{{ asset('assets/agric.jpg') }}"
                                 alt="Water pipes"
                                 class="block w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-15"
                             />
@@ -526,7 +526,7 @@
                         <div class="relative overflow-hidden h-full">
 
                             <img
-                                src="{{ asset('assets/slide1.jpeg') }}"
+                                src="{{ asset('assets/industry.jpeg') }}"
                                 alt="Water pipes"
                                 class="block w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-15"
                             />
