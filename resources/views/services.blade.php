@@ -3,297 +3,247 @@
 @section('title', 'Our Services')
 
 @section('content')
-    <div class=" bg-white md:pt-36 pt-24 pb:12">
-        <div class="flex flex-col gap-2 px-4 md:px-14">
-            <h1 class="text-4xl font-bold text-center text-black">
-                SERVICES <br>
-                WE <span class="text-gray-300">PROVIDE</span>
+    <div class=" bg-white pb:12">
+        <div class="relative min-h-[350px] flex items-center">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="{{ asset('assets/5th.jpeg') }}" alt="Background" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 text-white p-8 flex justify-between items-center w-full px:4 md:px-60" >
+                <h1 class="text-3xl md:text-6xl font-bold mb-3">Services</h1>
+            </div>
+        </div>
+
+        <div class="px-4 md:px-60 py-12">
+            <h1 class="text-lg md:text-xl">
+                Qualiden group specializes in water infrastructure, pipeline systems, and civil engineering works. The company delivers complex projects with proven capability in HDPE, PVC, and steel pipeline installations, waterproofing, concrete protection systems, and related engineering services. Operating as both a main contractor and specialist subcontractor, Qualiden provides disciplined project execution and engineering-led solutions for industrial and commercial developments
             </h1>
-            <p class="text-sm text-center text-gray-300">
-                Delivery by Specification: Where Precision Meets Reliability
-            </p>
         </div>
 
-        <div class="carousel-container relative overflow-hidden py-12">
-            <!-- Carousel Track -->
-            <div id="carouselTrack" class="carousel-track flex gap-8 items-center">
-                <!-- Original Set -->
-                <div class="carousel-item flex-shrink-0">
-                    <img
-                        src="{{ asset('assets/quality.jpeg') }}"
-                        alt="Team collaboration"
-                        class="w-80 h-64 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
 
-                <div class="carousel-item flex-shrink-0">
-                    <img
-                        src="{{ asset('assets/optics.jpg') }}"
-                        alt="Office workspace"
-                        class="w-96 h-72 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
 
-                <div class="carousel-item flex-shrink-0 relative">
-                    <!-- Decorative Circle Badge -->
-                    <div class="absolute -top-8 -right-8 w-32 h-32 bg-[#fbbf24] rounded-full flex items-center justify-center z-10 shadow-lg rotate-12">
-                        <span class="text-xs font-bold text-center leading-tight">GREAT TO<br>WORK<br>WITH US</span>
+        <div class="py-20 px-4 md:px-60 bg-white">
+            <div class="mx-auto">
+
+                <!-- Carousel Container -->
+                <div class="relative" id="services-carousel">
+                    <!-- Navigation Arrows at Top Right -->
+                    <div class="flex justify-end gap-2 mb-6">
+                        <button id="prev-btn" class="w-10 h-10 bg-black hover:bg-gray-800 flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <button id="next-btn" class="w-10 h-10 bg-[#fbbf24] hover:bg-yellow-500 flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
                     </div>
-                    <img
-                        src="{{ asset('assets/nm.jpeg') }}"
-                        alt="Team meeting"
-                        class="w-80 h-64 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
 
-                <div class="carousel-item flex-shrink-0">
-                    <img
-                        src="{{ asset('assets/mn.jpeg') }}"
-                        alt="Creative workspace"
-                        class="w-72 h-80 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
+                    <!-- Carousel Slides Container -->
+                    <div class="overflow-hidden">
+                        <div class="flex transition-transform duration-500 ease-in-out" id="services-track">
+                            <!-- Service 1 - GENERAL CONSTRUCTION WORKS -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="General Construction Works" class="w-full h-full object-cover">
+                                    </div>
 
-                <!-- Duplicate Set for Seamless Loop -->
-                <div class="carousel-item flex-shrink-0">
-                    <img
-                        src="{{ asset('assets/safety.jpeg') }}"
-                        alt="Team collaboration"
-                        class="w-80 h-64 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            GENERAL CONSTRUCTION WORKS
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Complete building construction from ground-up to finishing. We deliver residential, commercial, and industrial projects with precision craftsmanship and attention to detail.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div class="carousel-item flex-shrink-0">
-                    <img
-                        src="{{ asset('assets/slide2.jpeg') }}"
-                        alt="Office workspace"
-                        class="w-96 h-72 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
+                            <!-- Service 2 - CIVIL ENGINEERING -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="Civil Engineering" class="w-full h-full object-cover">
+                                    </div>
 
-                <div class="carousel-item flex-shrink-0 relative">
-                    <div class="absolute -top-8 -right-8 w-32 h-32 bg-[#fbbf24] rounded-full flex items-center justify-center z-10 shadow-lg rotate-12">
-                        <span class="text-xs font-bold text-center leading-tight">GREAT TO<br>WORK<br>WITH US</span>
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            CIVIL ENGINEERING
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Your business deserves to be noticed! Attract exceptional site development, earthworks, drainage, road construction, and structural engineering solutions that create lasting infrastructure.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Service 3 - PIPES & INSTALLATIONS -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="Pipes & Installations" class="w-full h-full object-cover">
+                                    </div>
+
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            PIPES & INSTALLATIONS
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Specialized pipe installation for water supply, drainage, and industrial applications using HDPE welding, PVC, and steel fittings with precision and reliability.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Service 4 - CONSTRUCTION CHEMICALS -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="Construction Chemicals" class="w-full h-full object-cover">
+                                    </div>
+
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            CONSTRUCTION CHEMICALS
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            High-performance chemical solutions for concrete protection, waterproofing, bonding, and surface treatment to ensure structural integrity and longevity.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Service 5 - CORROSION CONTROL -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="Corrosion Control" class="w-full h-full object-cover">
+                                    </div>
+
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            CORROSION CONTROL
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Advanced corrosion prevention for metal structures, pipelines, and industrial equipment to extend service life and maintain structural integrity.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Service 6 - WELDING & FABRICATION -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="Welding & Fabrication" class="w-full h-full object-cover">
+                                    </div>
+
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            WELDING & FABRICATION
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Precision welding and metal fabrication for structural steel, pipe systems, and custom metal components with certified craftsmen.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Service 7 - SUPPLY OF MATERIALS -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                                    <!-- Image Section -->
+                                    <div class="order-2 lg:order-1 bg-gray-100 h-96 flex items-center justify-center">
+                                        <img src="{{ asset('assets/mn.jpeg') }}" alt="Supply of Materials" class="w-full h-full object-cover">
+                                    </div>
+
+                                    <!-- Text Section -->
+                                    <div class="order-1 lg:order-2 bg-white flex flex-col justify-center p-12 h-96">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+                                            SUPPLY OF MATERIALS
+                                        </h3>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Comprehensive material procurement and supply services ensuring quality construction materials, engineering equipment, and specialized tools are delivered on time.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <img
-                        src="{{ asset('assets/slide1.jpeg') }}"
-                        alt="Team meeting"
-                        class="w-80 h-64 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
-                </div>
-
-                <div class="carousel-item flex-shrink-0">
-                    <img
-                        src="{{ asset('assets/plant.jpg') }}"
-                        alt="Creative workspace"
-                        class="w-72 h-80 object-cover rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                    />
                 </div>
             </div>
         </div>
 
-        <!-- Services Cards -->
-        <div class="py-20 px-4 md:px-14 bg-white">
-            <div class=" mx-auto">
-                <!-- Section Header -->
-                <div class="mb-16">
-                    <p class="text-sm text-gray-500 uppercase tracking-wider mb-4">OUR SERVICES</p>
-                    <h2 class="text-4xl md:text-5xl font-bold text-black">
-                        We provide a wide range of services
-                    </h2>
-                </div>
+        <script>
+            const track = document.getElementById('services-track');
+            const slides = Array.from(track.children);
+            const totalSlides = slides.length;
 
-                <!-- Divider -->
-                <div class="border-t border-gray-200 mb-12"></div>
+            // Get all navigation buttons
+            const prevBtns = document.querySelectorAll('#prev-btn, #prev-btn-bottom');
+            const nextBtns = document.querySelectorAll('#next-btn, #next-btn-bottom');
 
-                <!-- Service 1 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">01</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                GENERAL CONSTRUCTION WORKS
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Complete building construction from ground-up to finishing. We deliver residential, commercial, and industrial projects with precision craftsmanship and attention to detail.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            let currentIndex = 0;
 
-                <!-- Service 2 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">02</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                CIVIL ENGINEERING
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Your business deserves to be noticed! Attract exceptional site development, earthworks, drainage, road construction, and structural engineering solutions that create lasting infrastructure.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            const updateCarousel = (index) => {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+            };
 
-                <!-- Service 3 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">03</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                PIPES & INSTALLATIONS
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Specialized pipe installation for water supply, drainage, and industrial applications using HDPE welding, PVC, and steel fittings with precision and reliability.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">04</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                CONSTRUCTION CHEMICALS
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                High-performance chemical solutions for concrete protection, waterproofing, bonding, and surface treatment to ensure structural integrity and longevity.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">05</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                CORROSION CONTROL
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Advanced corrosion prevention for metal structures, pipelines, and industrial equipment to extend service life and maintain structural integrity.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">06</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                WELDING & FABRICATION
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Precision welding and metal fabrication for structural steel, pipe systems, and custom metal components with certified craftsmen.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="mb-16">
-                    <div class="grid md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <p class="text-sm text-gray-500 mb-4">07</p>
-                            <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight">
-                                SUPPLY OF MATERIALS
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Comprehensive material procurement and supply services ensuring quality construction materials, engineering equipment, and specialized tools are delivered on time.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Divider -->
-                <div class="border-t border-gray-200 mt-16"></div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .carousel-container {
-            position: relative;
-        }
-
-        .carousel-track {
-            display: flex;
-            width: fit-content;
-            animation: scroll 30s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Pause on hover */
-        .carousel-track:hover {
-            animation-play-state: paused;
-        }
-
-        /* Optional: Add fade effect on edges */
-        .carousel-container::before,
-        .carousel-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .carousel-container::before {
-            left: 0;
-            background: linear-gradient(to right, rgb(243, 244, 246), transparent);
-        }
-
-        .carousel-container::after {
-            right: 0;
-            background: linear-gradient(to left, rgb(243, 244, 246), transparent);
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.getElementById('carouselTrack');
-
-            // Optional: Add speed control
-            let speed = 1;
-
-            track.addEventListener('mouseenter', function() {
-                this.style.animationPlayState = 'paused';
+            // Add event listeners to all previous buttons
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    updateCarousel(prevIndex);
+                });
             });
 
-            track.addEventListener('mouseleave', function() {
-                this.style.animationPlayState = 'running';
+            // Add event listeners to all next buttons
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const nextIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel(nextIndex);
+                });
             });
-        });
-    </script>
+
+            // Auto-play
+            let autoPlayInterval;
+
+            const startAutoPlay = () => {
+                autoPlayInterval = setInterval(() => {
+                    const nextIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel(nextIndex);
+                }, 5000);
+            };
+
+            const stopAutoPlay = () => {
+                clearInterval(autoPlayInterval);
+            };
+
+            startAutoPlay();
+
+            const carousel = document.getElementById('services-carousel');
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+        </script>
+
 
 @endsection

@@ -9,7 +9,9 @@ Route::get('/', function () {
 })->name('home');
 
 // Static pages
-Route::view('/firm', 'firm')->name('about');
+Route::view('/about', 'firm')->name('about');
+Route::view('/news', 'news')->name('news');
+Route::view('/cases', 'cases')->name('cases');
 Route::view('/mission', 'mission')->name('mission');
 Route::view('/services', 'services')->name('services');
 Route::view('/contact', 'contact')->name('contact');
