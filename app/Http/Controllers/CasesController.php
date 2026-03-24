@@ -122,7 +122,7 @@ class CasesController extends Controller
 
         // Delete selected images
         if ($request->delete_images) {
-            $imagesToDelete = CaseImages::whereIn('id', $request->delete_images)->get();
+            $imagesToDelete = CasesImages::whereIn('id', $request->delete_images)->get();
             foreach ($imagesToDelete as $image) {
                 Storage::disk('public')->delete($image->image_path);
                 $image->delete();
@@ -136,7 +136,7 @@ class CasesController extends Controller
                 $imageName = time().'_'.($currentMaxOrder + $order + 1).'.'.$image->getClientOriginalExtension();
                 $imagePath = $image->storeAs('cases/images', $imageName, 'public');
 
-                CaseImages::create([
+                CasesImages::create([
                     'case_id' => $case->id,
                     'image_path' => $imagePath,
                     'caption' => $request->captions[$order] ?? null,
@@ -174,7 +174,7 @@ class CasesController extends Controller
             ->orderBy('published_at', 'desc')
             ->paginate(12);
 
-        return view('cases.index', compact('cases'));
+        return view('cases', compact('cases'));
     }
 
     public function show(Cases $case)

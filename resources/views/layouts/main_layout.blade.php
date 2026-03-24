@@ -146,7 +146,7 @@
                 <ul class="flex space-x-8">
                     <li><a href="/" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">HOME</a></li>
                     <li><a href="/about" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">ABOUT US</a></li>
-                    <li><a href="/products" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">PRODUCTS</a></li>
+                    <li><a href="/our-projects" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">PRODUCTS</a></li>
                     <li><a href="/news" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">NEWS</a></li>
                     <li><a href="/cases" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">CASES</a></li>
                     <li><a href="/services" class="text-gray-700 hover:text-[#fbbf24] transition-colors text-sm font-medium">SERVICES</a></li>
@@ -156,7 +156,7 @@
 
             <!-- Right Side: Get a Quote, Language, Search -->
             <div class="hidden lg:flex items-center space-x-6">
-                <a href="/quote" class="bg-[#fbbf24] hover:bg-yellow-500 text-black font-semibold px-5 py-2 text-sm transition-colors">
+                <a href="/contact" class="bg-[#fbbf24] hover:bg-yellow-500 text-black font-semibold px-5 py-2 text-sm transition-colors">
                     Get a Quote
                 </a>
                 <div class="flex items-center space-x-2">
@@ -212,7 +212,7 @@
                 <a href="/about" class="block text-lg font-semibold text-black hover:text-[#fbbf24] transition-colors">ABOUT US</a>
             </li>
             <li class="text-center border-b border-gray-200 pb-3">
-                <a href="/products" class="block text-lg font-semibold text-black hover:text-[#fbbf24] transition-colors">PRODUCTS</a>
+                <a href="/our-projects" class="block text-lg font-semibold text-black hover:text-[#fbbf24] transition-colors">PRODUCTS</a>
             </li>
             <li class="text-center border-b border-gray-200 pb-3">
                 <a href="/news" class="block text-lg font-semibold text-black hover:text-[#fbbf24] transition-colors">NEWS</a>
@@ -243,7 +243,7 @@
         </div>
 
         <!-- Get a Quote Button -->
-        <a href="/quote" class="w-full bg-[#fbbf24] hover:bg-yellow-500 text-black font-bold py-3 rounded-lg transition-colors text-center mb-4">
+        <a href="/contact" class="w-full bg-[#fbbf24] hover:bg-yellow-500 text-black font-bold py-3 rounded-lg transition-colors text-center mb-4">
             Get a Quote
         </a>
 
@@ -336,9 +336,11 @@
                 </p>
             </div>
             <div>
+                <a href="/contact">
                 <button class="bg-[#fbbf24] px-6 py-3 text-black rounded-full font-semibold hover:bg-yellow-400 transition-colors">
                     Get A Quote
                 </button>
+                </a>
             </div>
         </div>
     </div>

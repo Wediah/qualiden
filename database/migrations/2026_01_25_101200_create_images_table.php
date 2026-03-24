@@ -14,12 +14,13 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
-            $table->string('filename');
+            $table->string('filename')->nullable();
             $table->string('path', 1024);
             $table->string('disk', 32)->default('public');
             $table->string('mime_type', 100)->nullable();
             $table->unsignedInteger('size')->nullable();
-            $table->unsignedInteger('order')->default(0);
+            $table->integer('order')->default(0);
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
 
             $table->index(['project_id', 'order']);

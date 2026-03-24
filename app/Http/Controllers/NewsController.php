@@ -183,7 +183,7 @@ class NewsController extends Controller
             ->orderBy('published_at', 'desc')
             ->paginate(12);
 
-        return view('news.index', compact('news'));
+        return view('news', compact('news'));
     }
 
     public function show(News $news)
