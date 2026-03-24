@@ -57,21 +57,43 @@
                                     <label for="name" class="block text-sm font-medium text-gray-300">
                                         Project Name <span class="text-red-500">*</span>
                                     </label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-
-                                        </div>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            value="{{ old('name') }}"
-                                            placeholder="Enter project name"
-                                            required
-                                            class="pl-10 w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
-                                        >
-                                    </div>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value="{{ old('name') }}"
+                                        placeholder="Enter project name"
+                                        required
+                                        class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
+                                    >
+                                    <p class="text-xs text-gray-400">This will be used to generate the URL slug automatically</p>
                                     @error('name')
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <!-- Category -->
+                                <div class="space-y-2">
+                                    <label for="category" class="block text-sm font-medium text-gray-300">
+                                        Category <span class="text-red-500">*</span>
+                                    </label>
+                                    <select
+                                        id="category"
+                                        name="category"
+                                        required
+                                        class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
+                                    >
+                                        <option value="" disabled {{ old('category') ? '' : 'selected' }}>Select category</option>
+                                        <option value="HDPE Pipe" {{ old('category') == 'HDPE Pipe' ? 'selected' : '' }}>HDPE Pipe</option>
+                                        <option value="HDPE Fittings" {{ old('category') == 'HDPE Fittings' ? 'selected' : '' }}>HDPE Fittings</option>
+                                        <option value="HDPE Welding Machine" {{ old('category') == 'HDPE Welding Machine' ? 'selected' : '' }}>HDPE Welding Machine</option>
+                                        <option value="PVC Pipe" {{ old('category') == 'PVC Pipe' ? 'selected' : '' }}>PVC Pipe</option>
+                                        <option value="PVC Fittings" {{ old('category') == 'PVC Fittings' ? 'selected' : '' }}>PVC Fittings</option>
+                                        <option value="FRP/GRP Pipe & Fittings" {{ old('category') == 'FRP/GRP Pipe & Fittings' ? 'selected' : '' }}>FRP/GRP Pipe & Fittings</option>
+                                        <option value="PPR Pipe & Fittings" {{ old('category') == 'PPR Pipe & Fittings' ? 'selected' : '' }}>PPR Pipe & Fittings</option>
+                                        <option value="Geosynthetic Materials" {{ old('category') == 'Geosynthetic Materials' ? 'selected' : '' }}>Geosynthetic Materials</option>
+                                    </select>
+                                    @error('category')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -83,46 +105,74 @@
                                         <label for="client" class="block text-sm font-medium text-gray-300">
                                             Client
                                         </label>
-                                        <div class="relative">
-                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-{{--                                                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
-{{--                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />--}}
-{{--                                                </svg>--}}
-                                            </div>
-                                            <input
-                                                type="text"
-                                                id="client"
-                                                name="client"
-                                                value="{{ old('client') }}"
-                                                placeholder="Client name"
-                                                class="pl-10 w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
-                                            >
-                                        </div>
+                                        <input
+                                            type="text"
+                                            id="client"
+                                            name="client"
+                                            value="{{ old('client') }}"
+                                            placeholder="Client name"
+                                            class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
+                                        >
                                         @error('client')
                                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                         @enderror
                                     </div>
 
-                                    <!-- Status -->
-                                    <div class="space-y-2">
-                                        <label for="status" class="block text-sm font-medium text-gray-300">
-                                            Status
-                                        </label>
-                                        <select
-                                            id="status"
-                                            name="status"
-                                            class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
-                                        >
-                                            <option value="" disabled {{ old('status') ? '' : 'selected' }}>Select status</option>
-                                            <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                                            <option value="in-progress" {{ old('status') == 'in-progress' ? 'selected' : '' }}>In Progress</option>
-                                            <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Completed</option>
-                                            <option value="on-hold" {{ old('status') == 'on-hold' ? 'selected' : '' }}>On Hold</option>
-                                        </select>
-                                        @error('status')
-                                        <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
-                                        @enderror
-                                    </div>
+{{--                                    <!-- Status -->--}}
+{{--                                    <div class="space-y-2">--}}
+{{--                                        <label for="status" class="block text-sm font-medium text-gray-300">--}}
+{{--                                            Status--}}
+{{--                                        </label>--}}
+{{--                                        <select--}}
+{{--                                            id="status"--}}
+{{--                                            name="status"--}}
+{{--                                            class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"--}}
+{{--                                        >--}}
+{{--                                            <option value="" disabled {{ old('status') ? '' : 'selected' }}>Select status</option>--}}
+{{--                                            <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>--}}
+{{--                                            <option value="in-progress" {{ old('status') == 'in-progress' ? 'selected' : '' }}>In Progress</option>--}}
+{{--                                            <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Completed</option>--}}
+{{--                                            <option value="on-hold" {{ old('status') == 'on-hold' ? 'selected' : '' }}>On Hold</option>--}}
+{{--                                        </select>--}}
+{{--                                        @error('status')--}}
+{{--                                        <p class="mt-1 text-sm text-red-400">{{ $message }}</p>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+                                </div>
+
+                                <!-- Location -->
+                                <div class="space-y-2">
+                                    <label for="location" class="block text-sm font-medium text-gray-300">
+                                        Location
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="location"
+                                        name="location"
+                                        value="{{ old('location') }}"
+                                        placeholder="Project location"
+                                        class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
+                                    >
+                                    @error('location')
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <!-- Completion Date -->
+                                <div class="space-y-2">
+                                    <label for="completion_date" class="block text-sm font-medium text-gray-300">
+                                        Completion Date
+                                    </label>
+                                    <input
+                                        type="date"
+                                        id="completion_date"
+                                        name="completion_date"
+                                        value="{{ old('completion_date') }}"
+                                        class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition"
+                                    >
+                                    @error('completion_date')
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 <!-- Description -->
@@ -130,21 +180,14 @@
                                     <label for="bio" class="block text-sm font-medium text-gray-300">
                                         Description <span class="text-red-500">*</span>
                                     </label>
-                                    <div class="relative">
-                                        <div class="absolute top-3 left-3 pointer-events-none">
-{{--                                            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
-{{--                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />--}}
-{{--                                            </svg>--}}
-                                        </div>
-                                        <textarea
-                                            id="bio"
-                                            name="bio"
-                                            rows="6"
-                                            placeholder="Enter project description"
-                                            required
-                                            class="pl-10 w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition resize-none"
-                                        >{{ old('bio') }}</textarea>
-                                    </div>
+                                    <textarea
+                                        id="description"
+                                        name="description"
+                                        rows="6"
+                                        placeholder="Enter project description"
+                                        required
+                                        class="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:border-transparent transition resize-none"
+                                    >{{ old('bio') }}</textarea>
                                     @error('bio')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
@@ -163,9 +206,9 @@
                                         <label for="images" class="block cursor-pointer">
                                             <div class="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-600 p-8 hover:border-[#fbbf24] transition-colors bg-gray-900/50">
                                                 <div class="mb-4 rounded-full bg-amber-900/20 p-3">
-{{--                                                    <svg class="h-8 w-8 text-[#fbbf24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
-{{--                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />--}}
-{{--                                                    </svg>--}}
+                                                    <svg class="h-8 w-8 text-[#fbbf24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                    </svg>
                                                 </div>
                                                 <div class="text-center">
                                                     <p class="text-sm font-medium text-gray-300">
@@ -173,6 +216,9 @@
                                                     </p>
                                                     <p class="mt-1 text-xs text-gray-400">
                                                         PNG, JPG, GIF, SVG, WEBP up to 5MB each
+                                                    </p>
+                                                    <p class="mt-1 text-xs text-amber-400">
+                                                        First image will be used as the featured image
                                                     </p>
                                                 </div>
                                             </div>
@@ -189,7 +235,7 @@
 
                                     <!-- Image Preview -->
                                     <div class="mt-4">
-                                        <h4 class="text-sm font-medium text-gray-300 mb-3">Selected Images</h4>
+                                        <h4 class="text-sm font-medium text-gray-300 mb-3">Selected Images ({{ count(old('images', [])) }})</h4>
                                         <div id="selectedGrid" class="grid grid-cols-3 sm:grid-cols-4 gap-3 min-h-25">
                                             <!-- Preview will appear here -->
                                         </div>
@@ -199,11 +245,25 @@
                                     </div>
 
                                     @error('images')
-                                    <p class="mt-1 text-sm  text-red-400">{{ $message }}</p>
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
                                     @error('images.*')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
+                                </div>
+
+                                <!-- Slug Preview (Auto-generated) -->
+                                <div class="bg-gray-700/50 rounded-lg p-4">
+                                    <div class="flex items-start gap-3">
+                                        <svg class="h-5 w-5 text-gray-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m1.102-4.486a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102" />
+                                        </svg>
+                                        <div class="flex-1">
+                                            <h4 class="text-sm font-medium text-gray-300">URL Preview</h4>
+                                            <p class="text-xs text-gray-400 mt-1">Your project will be accessible at:</p>
+                                            <p class="text-sm text-[#fbbf24] font-mono mt-1" id="slugPreview">/projects/your-project-slug</p>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Tips Section -->
@@ -221,6 +281,8 @@
                                                     <li>Upload high-quality images for better presentation</li>
                                                     <li>First image will be used as the main project image</li>
                                                     <li>You can upload multiple images at once</li>
+                                                    <li>Images will be automatically optimized for web</li>
+                                                    <li>The URL slug is auto-generated from the project name</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -231,7 +293,7 @@
                     </div>
 
                     <!-- Footer -->
-                    <div class="px-8 py-6 bg-gray-900/50 border-t border-gray-200 dark:border-gray-700">
+                    <div class="px-8 py-6 bg-gray-900/50 border-t border-gray-700">
                         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                             <a href="{{ route('dashboard') }}" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 transition-colors w-full sm:w-auto">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +302,7 @@
                                 Back to Projects
                             </a>
 
-                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-[#fbbf24] hover:bg-amber-500 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 w-full sm:w-auto">
+                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-black bg-[#fbbf24] hover:bg-amber-500 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 w-full sm:w-auto">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                                 </svg>
@@ -253,13 +315,36 @@
         </div>
     </div>
 
-    <!-- Image Preview Script -->
+    <!-- Image Preview & Slug Preview Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const input = document.getElementById('images');
             const grid = document.getElementById('selectedGrid');
             const noImagesMessage = document.getElementById('noImagesMessage');
+            const nameInput = document.getElementById('name');
+            const slugPreview = document.getElementById('slugPreview');
 
+            // Slug preview functionality
+            function updateSlugPreview() {
+                const name = nameInput.value.trim();
+                if (name) {
+                    const slug = name.toLowerCase()
+                        .replace(/[^\w\s-]/g, '')
+                        .replace(/\s+/g, '-')
+                        .replace(/--+/g, '-')
+                        .trim();
+                    slugPreview.textContent = `/projects/${slug}`;
+                } else {
+                    slugPreview.textContent = '/projects/your-project-slug';
+                }
+            }
+
+            if (nameInput) {
+                nameInput.addEventListener('input', updateSlugPreview);
+                updateSlugPreview();
+            }
+
+            // Image preview functionality
             if (!input || !grid) return;
 
             input.addEventListener('change', function (e) {
@@ -280,25 +365,30 @@
                     const reader = new FileReader();
                     reader.onload = function (ev) {
                         const wrapper = document.createElement('div');
-                        wrapper.className = 'relative group rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-900';
+                        wrapper.className = 'relative group rounded-lg overflow-hidden border border-gray-700 bg-gray-900';
 
-                        // Image
                         const img = document.createElement('img');
                         img.src = ev.target.result;
                         img.alt = `Preview ${idx + 1}`;
                         img.className = 'w-full h-24 object-cover';
 
-                        // Overlay with filename
+                        // Featured badge for first image
+                        if (idx === 0) {
+                            const badge = document.createElement('div');
+                            badge.className = 'absolute top-1 left-1 bg-[#fbbf24] text-black text-xs font-bold px-2 py-0.5 rounded';
+                            badge.textContent = 'FEATURED';
+                            wrapper.appendChild(badge);
+                        }
+
                         const overlay = document.createElement('div');
                         overlay.className = 'absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2';
 
                         const fileName = document.createElement('span');
                         fileName.className = 'text-xs text-white truncate';
-                        fileName.textContent = file.name;
+                        fileName.textContent = file.name.length > 20 ? file.name.substring(0, 17) + '...' : file.name;
 
                         overlay.appendChild(fileName);
 
-                        // Remove button
                         const btn = document.createElement('button');
                         btn.type = 'button';
                         btn.className = 'absolute top-1 right-1 bg-red-600 hover:bg-red-700 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-red-500';
@@ -306,13 +396,11 @@
                         btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>';
 
                         btn.addEventListener('click', function () {
-                            // Remove this file from input
                             const remaining = files.filter((_, i) => i !== idx);
                             const dataTransfer = new DataTransfer();
                             remaining.forEach(f => dataTransfer.items.add(f));
                             input.files = dataTransfer.files;
 
-                            // Update preview
                             if (remaining.length === 0) {
                                 noImagesMessage.classList.remove('hidden');
                             }

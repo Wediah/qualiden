@@ -7,11 +7,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProjectImages extends Model
 {
-    protected $table = 'project_images';
+    protected $table = 'images';
 
     protected $fillable = [
         'project_id',
-        'path'
+        'filename',  // Add this
+        'path',
+        'disk',
+        'mime_type', // Add this
+        'size',      // Add this
+        'order',
+        'is_featured',
+    ];
+
+    protected $casts = [
+        'is_featured' => 'boolean',
+        'order' => 'integer',
+        'size' => 'integer',
     ];
 
     public function project(): BelongsTo

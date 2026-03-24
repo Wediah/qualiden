@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('status')->default('pending');
-            $table->string('client')->nullable();
-            $table->text('bio')->nullable();
+            $table->string('slug')->unique();
+            $table->string('category');
+            $table->string('client');
+            $table->string('location')->nullable();
+            $table->string('completion_date')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }
