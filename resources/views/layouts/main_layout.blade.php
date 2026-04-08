@@ -165,16 +165,19 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </div>
-                <div class="relative">
+                <form action="{{ route('projects.search') }}" method="GET" class="relative">
                     <input
                         type="text"
-                        placeholder="Search Here......"
-                        class="pl-8 pr-4 py-2 border border-gray-300 rounded text-sm w-48 focus:outline-none focus:border-[#fbbf24]"
+                        name="q"
+                        placeholder="Search Projects..."
+                        class="pl-8 pr-4 py-2 border border-gray-300 rounded text-sm w-48 focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24]"
                     >
-                    <svg class="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </div>
+                    <button type="submit" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#fbbf24]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                </form>
             </div>
 
             <!-- Hamburger Menu Button for Mobile -->
@@ -320,7 +323,7 @@
 
 <!-- Footer -->
 <footer class="bg-black">
-    <div class="relative min-h-[350px] flex items-center px-4 md:px-60">
+    <div class="relative min-h-87.5 flex items-center px-4 md:px-60">
         <!-- Background Image -->
         <div class="absolute inset-0">
             <img src="{{ asset('assets/site.jpg') }}" alt="Background" class="w-full h-full object-cover">

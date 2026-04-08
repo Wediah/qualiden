@@ -20,25 +20,52 @@ class ProjectController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+    public function search(Request $request)
+    {
+        // Get the search term from the URL query string (?q=...)
+        $query = $request->input('q');
+
+        // Start with all projects
+        $projects = Project::query();
+
+        // If there is a search term, filter by name, description, or location
+        if ($query) {
+            $projects->where(function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%")
+                    ->orWhere('description', 'like', "%{$query}%")
+                    ->orWhere('location', 'like', "%{$query}%");
+            });
+        }
+
+        // Order by newest first and paginate
+        $projects = $projects->orderBy('created_at', 'desc')->paginate(12);
+
+        // Return the view with results and the original query (to show "Results for...")
+        return view('projects.search', compact('projects', 'query'));
+    }
+
     public function clientProjects(Request $request)
     {
         $category = $request->get('category');
 
-        // Get all unique categories for the filter
+        // Get all unique categories for the filter sidebar
         $categories = Project::whereNotNull('category')
             ->distinct()
             ->pluck('category')
             ->toArray();
 
-        // Get projects based on selected category
-        $projects = Project::with('images')
-            ->when($category, function ($query, $category) {
-                return $query->where('category', $category);
-            })
-            ->orderBy('created_at', 'desc')
-            ->paginate(9);
+        // Start the query
+        $query = Project::with('images')->orderBy('created_at', 'desc');
 
-        // Get counts for each category
+        // Apply filter ONLY if a category is selected
+        if ($category) {
+            $query->where('category', $category);
+        }
+
+        // Execute pagination
+        $projects = $query->paginate(9);
+
+        // Get counts for each category (Optional: useful for UI badges)
         $categoryCounts = [];
         foreach ($categories as $cat) {
             $categoryCounts[$cat] = Project::where('category', $cat)->count();

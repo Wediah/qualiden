@@ -23,6 +23,8 @@ Route::get('/our-projects', [ProjectController::class, 'clientProjects'])->name(
 Route::view('/engineering', 'engineering')->name('engineering');
 Route::view('/policy', 'policy')->name('policy');
 
+Route::get('/search', [ProjectController::class, 'search'])->name('projects.search');
+
 Route::get('/projects/create', [ProjectController::class, 'create'])->middleware('auth', 'admin')->name('projects.create');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
