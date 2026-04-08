@@ -22,31 +22,35 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.DEPLOY_PATH }}
-            # Enable maintenance mode
-            echo "🚧 Enabling maintenance mode..."
 
-
-             # Configure Git with Personal Access Token
+            # 1. Configure Git to use HTTPS with Personal Access Token
             echo "🔑 Configuring Git authentication..."
-            git remote set-url origin git@github.com:Wediah/qualiden.git
+            git remote set-url origin https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}@github.com/Wediah/qualiden.git
 
-            # Reset any local changes that conflict
+            # 2. Reset any local changes that might conflict
             echo "🔄 Resetting local changes..."
-            git checkout -- composer.json composer.lock
+            git checkout -- composer.json composer.lock 2>/dev/null || true
             git clean -fd
 
-            # Pull latest changes
+            # 3. Pull latest changes
             echo "📥 Pulling latest changes..."
             git fetch origin main
             git reset --hard origin/main
-            composer install --no-dev --ignore-platform-req=php
 
-            # ⚡ AUTO-SYNC ASSETS TO public_html ⚡
-            echo "🔄 Syncing assets to public_html..."
+            # 4. Install dependencies
+            composer install --no-dev --ignore-platform-req=php --optimize-autoloader
+
+            # 5. Sync Assets (Optional: Adjust paths if needed)
+            echo "🔄 Syncing assets..."
             mkdir -p ~/public_html/assets
             cp -r assets/* ~/public_html/assets/ 2>/dev/null || true
-            chmod -R 644 ~/public_html/assets/*
+            chmod -R 644 ~/public_html/assets/
 
-
+            # 6. Laravel Maintenance & Migrations
             php artisan optimize:clear
             php artisan migrate --force
+
+            # 7. Disable maintenance mode (if you enabled it earlier, otherwise remove these lines)
+            # php artisan up
+
+            echo "✅ Deployment complete!"
