@@ -40,17 +40,28 @@ jobs:
             # 4. Install dependencies
             composer install --no-dev --ignore-platform-req=php --optimize-autoloader
 
-            # 5. Sync Assets (Optional: Adjust paths if needed)
-            echo "🔄 Syncing assets..."
+            # 5. Sync Assets to public_html
+            echo "🔄 Syncing assets to public_html..."
+
+            # Ensure the directory exists
             mkdir -p ~/public_html/assets
+
+            # Copy files from project 'assets' folder to public_html/assets
+            # Using rsync is better, but cp works if rsync isn't installed
             cp -r assets/* ~/public_html/assets/ 2>/dev/null || true
-            chmod -R 644 ~/public_html/assets/
+
+            # FIX FOR PERMISSION ERROR:
+            # Instead of chmod, we change ownership to the current user (whoever is running the script)
+            # If you are logging in as 'root', this changes owner to root.
+            # If you are logging in as 'cpaneluser', this changes owner to cpaneluser.
+            chown -R $(whoami):$(whoami) ~/public_html/assets/
+
+            # Now set permissions safely
+            find ~/public_html/assets/ -type f -exec chmod 644 {} \;
+            find ~/public_html/assets/ -type d -exec chmod 755 {} \;
 
             # 6. Laravel Maintenance & Migrations
             php artisan optimize:clear
             php artisan migrate --force
-
-            # 7. Disable maintenance mode (if you enabled it earlier, otherwise remove these lines)
-            # php artisan up
 
             echo "✅ Deployment complete!"
