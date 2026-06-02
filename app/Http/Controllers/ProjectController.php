@@ -205,7 +205,7 @@ class ProjectController extends Controller
             return response()->json($project);
         }
 
-        return redirect()->route('projects')->with('success', 'Project updated.');
+        return redirect()->route('dashboard')->with('success', 'Project updated.');
     }
 
     /**
@@ -230,7 +230,7 @@ class ProjectController extends Controller
             return response()->noContent();
         }
 
-        return redirect()->route('projects')->with('success', 'Project deleted.');
+        return redirect()->route('dashboard')->with('success', 'Project deleted.');
     }
 
     /**
