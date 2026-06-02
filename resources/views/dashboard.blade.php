@@ -1,7 +1,7 @@
 <x-layouts::app :title="__('dashboard')">
-    <!-- Add the same container structure as your create page -->
-    <div class="min-h-screen bg-gray-900 py-8 px-4 sm:px-6 lg:px-8">
-        <div class=" mx-auto">
+    <!-- Changed bg-gray-900 to bg-gray-50 for light mode -->
+    <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
             <flux:main class="flex flex-col gap-8">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <flux:heading size="2xl">{{ __('Projects') }}</flux:heading>
@@ -16,7 +16,7 @@
 
                 @if($projects->isEmpty())
                     <flux:card>
-                        <flux:card class="text-center py-12">
+                        <div class="text-center py-12">
                             <flux:icon name="folder-open" class="h-12 w-12 mx-auto text-gray-400" />
                             <h3 class="mt-4 text-lg font-medium text-gray-900">{{ __('No projects found') }}</h3>
                             <p class="mt-2 text-gray-500">{{ __('Get started by creating your first project.') }}</p>
@@ -25,7 +25,7 @@
                                     {{ __('Create Project') }}
                                 </flux:button>
                             </div>
-                        </flux:card>
+                        </div>
                     </flux:card>
                 @else
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -36,7 +36,7 @@
                                          alt="{{ $project->name }}"
                                          class="w-full h-48 object-cover rounded-t-lg">
                                 @endif
-                                <flux:card class="space-y-4 p-4">  Added padding
+                                <div class="space-y-4 p-4">
                                     <div class="flex justify-between items-start">
                                         <div>
                                             <h3 class="text-lg font-semibold text-gray-900">{{ $project->name }}</h3>
@@ -84,7 +84,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </flux:card>
+                                </div>
                             </flux:card>
                         @endforeach
                     </div>
