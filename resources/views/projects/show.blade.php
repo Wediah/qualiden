@@ -50,19 +50,44 @@
         </div>
 
         <!-- Image Gallery -->
-        <div class="mt-28 px-14 gap-28 py-28">
-            <div class="flex flex-wrap gap-4">
+        <div class="mt-28 px-4 py-10 flex justify-center items-start min-h-screen">
+            <!-- Image Grid Container -->
+            <div class="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
                 @foreach($project->images as $image)
                     @if($image->path)
-                        <div class="shrink-0">
+                        <div class="shrink-0 group cursor-pointer relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+                             onclick="openModal('{{ Storage::url($image->path) }}')">
+
                             <img
                                 src="{{ Storage::url($image->path) }}"
-                                class="w-64 h-64 object-cover rounded"
+                                class="w-64 h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
                                 alt="{{ $project->name }} ({{ $loop->iteration }})"
                             >
+
+                            <!-- Optional: Hover Overlay Icon -->
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                </svg>
+                            </div>
                         </div>
                     @endif
                 @endforeach
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeModal()">
+            <div class="relative max-w-5xl w-full">
+                <!-- Close Button -->
+                <button onclick="closeModal()" class="absolute -top-10 right-0 text-white hover:text-gray-300 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Large Image -->
+                <img id="modalImage" src="" alt="Full Size" class="max-h-[90vh] max-w-full mx-auto rounded-lg shadow-2xl">
             </div>
         </div>
 
@@ -79,4 +104,30 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        function openModal(imageSrc) {
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modalImg.src = '';
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
 @endsection
