@@ -14,7 +14,7 @@ class ContactUsController extends Controller
     {
         // Validate the request
         $validated = $request->validate([
-            'email' => 'required|email|max:255',
+            'email' => 'required|indisposable|email|max:255',
             'company' => 'nullable|string|max:255',
             'code' => 'nullable|string|max:10',
             'whatsapp' => 'required|string|max:20',
