@@ -1,9 +1,14 @@
 <x-layouts::auth>
     <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Create an account')" :description="__('Enter your details below to create your account')" />
+        <!-- Force header text to be visible in dark mode -->
+        <x-auth-header
+            :title="__('Create an account')"
+            :description="__('Enter your details below to create your account')"
+            class="text-white [&_p]:text-zinc-300"
+        />
 
         <!-- Session Status -->
-        <x-auth-session-status class="text-center" :status="session('status')" />
+        <x-auth-session-status class="text-center text-white" :status="session('status')" />
 
         <form method="POST" action="{{ route('register.store') }}" class="flex flex-col gap-6">
             @csrf
@@ -18,6 +23,7 @@
                 autofocus
                 autocomplete="name"
                 :placeholder="__('Full name')"
+                class="bg-zinc-900/50 text-white placeholder:text-zinc-500 border-zinc-700 focus:border-zinc-500"
             />
 
             <!-- Email Address -->
@@ -29,6 +35,7 @@
                 required
                 autocomplete="email"
                 placeholder="email@example.com"
+                class="bg-zinc-900/50 text-white placeholder:text-zinc-500 border-zinc-700 focus:border-zinc-500"
             />
 
             <!-- Password -->
@@ -40,6 +47,7 @@
                 autocomplete="new-password"
                 :placeholder="__('Password')"
                 viewable
+                class="bg-zinc-900/50 text-white placeholder:text-zinc-500 border-zinc-700 focus:border-zinc-500"
             />
 
             <!-- Confirm Password -->
@@ -51,6 +59,7 @@
                 autocomplete="new-password"
                 :placeholder="__('Confirm password')"
                 viewable
+                class="bg-zinc-900/50 text-white placeholder:text-zinc-500 border-zinc-700 focus:border-zinc-500"
             />
 
             <div class="flex items-center justify-end">
@@ -60,9 +69,10 @@
             </div>
         </form>
 
-        <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600">
+        <!-- Updated footer text colors for dark mode visibility -->
+        <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-400">
             <span>{{ __('Already have an account?') }}</span>
-            <flux:link :href="route('login')" wire:navigate>{{ __('Log in') }}</flux:link>
+            <flux:link :href="route('login')" wire:navigate class="text-white hover:underline">{{ __('Log in') }}</flux:link>
         </div>
     </div>
 </x-layouts::auth>
