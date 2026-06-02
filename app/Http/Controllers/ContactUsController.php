@@ -82,7 +82,7 @@ class ContactUsController extends Controller
         return view('admin.contacts.index', compact('contacts', 'stats'));
     }
 
-    public function show(Contact $contact)
+    public function show(ContactUs $contact)
     {
         if (! $contact->is_read) {
             $contact->markAsRead();
@@ -91,7 +91,7 @@ class ContactUsController extends Controller
         return view('admin.contacts.show', compact('contact'));
     }
 
-    public function destroy(Contact $contact)
+    public function destroy(ContactUs $contact)
     {
         $contact->delete();
 
